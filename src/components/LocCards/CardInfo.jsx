@@ -23,22 +23,24 @@ import IconState from "@material-ui/icons/RadioButtonCheckedOutlined";
 export default ({status, dif, rem, exp}) => {
   //  USE CSS
   const classes = useStyles();
-  // STADTUS EDIT
-  const statustext = status ? "Active" : "Completed";
-  const statusHelp = status
-    ? "The project is available for execution"
-    : "The project has been completed.";
 
   return (
     <div className={classes.root}>
       {/* GENERATION STATUS  */}
-      <LightTooltip title={statusHelp} arrow>
+      <LightTooltip
+        title={
+          status
+            ? "The project is available for execution"
+            : "The project has been completed."
+        }
+        arrow
+      >
         <Typography variant="overline" className={classes.allLine}>
           <IconState className={classes.icon} />
           <Hidden only={["xs", "sm"]}>
             <span className={classes.nameState}>Status</span> :
           </Hidden>
-          <span className={classes.state}>{statustext}</span>
+          <span className={classes.state}>{status ? "Active" : "Completed"}</span>
         </Typography>
       </LightTooltip>
 
