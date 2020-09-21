@@ -20,12 +20,12 @@ import IconState from "@material-ui/icons/RadioButtonCheckedOutlined";
  * @param {Number} props.exp [Expected - Количество ставок JUST NUMBER]
  * @returns {React Components} [На выходе получаем чистую строку со статусом проекта, временем исполнения и количеством ставок]
  */
-export default function CardInfo(props) {
+export default ({status, dif, rem, exp}) => {
   //  USE CSS
   const classes = useStyles();
   // STADTUS EDIT
-  const statustext = props.status ? "Active" : "Completed";
-  const statusHelp = props.status
+  const statustext = status ? "Active" : "Completed";
+  const statusHelp = status
     ? "The project is available for execution"
     : "The project has been completed.";
 
@@ -49,7 +49,7 @@ export default function CardInfo(props) {
           <Hidden only={["xs", "sm"]}>
             <span className={classes.nameState}>Difficulty</span> :
           </Hidden>
-          <span className={classes.state}>{props.dif}</span>
+          <span className={classes.state}>{dif}</span>
         </Typography>
       </LightTooltip>
 
@@ -60,7 +60,7 @@ export default function CardInfo(props) {
           <Hidden only={["xs", "sm"]}>
             <span className={classes.nameState}>Remaining</span> :
           </Hidden>
-          <span className={classes.state}>{props.rem}</span>
+          <span className={classes.state}>{rem}</span>
         </Typography>
       </LightTooltip>
 
@@ -71,12 +71,12 @@ export default function CardInfo(props) {
           <Hidden only={["xs", "sm"]}>
             <span className={classes.nameState}>Expected</span> :
           </Hidden>
-          <span className={classes.state}>{props.exp} Revisions</span>
+          <span className={classes.state}>{exp} Revisions</span>
         </Typography>
       </LightTooltip>
     </div>
   );
-}
+};
 
 //  Формируем обновленный подсказки
 const LightTooltip = withStyles((theme) => ({

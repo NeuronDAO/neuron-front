@@ -12,13 +12,13 @@ import Chip from "@material-ui/core/Chip";
  * @param {String} props.chipArr.name [Название чипа - выводится в списке чипов]
  * @returns {React Components} [По полученным параметрам возвращаем список Чипов]
  */
-export default function LabelGroup(props) {
+export default ({chipArr}) => {
   // USE CSS
   const classes = useStyles();
 
   return (
     <div>
-      {props.chipArr.map((item) => (
+      {chipArr.map((item) => (
         <Chip
           key={item.id}
           label={item.name}
@@ -30,6 +30,6 @@ export default function LabelGroup(props) {
       ))}
     </div>
   );
-}
+};
 // LOCAL CSS
 const useStyles = makeStyles(() => ({chiip: {margin: "3px 2px"}}));

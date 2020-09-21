@@ -16,32 +16,27 @@ import TextField from "@material-ui/core/TextField";
  *
  */
 
-export default function ModalInput(props) {
-  const classes = useStyles(),
-    full = props.full ? true : false, // Full width resize input
-    defVal = props.value ? props.value : "", // Defualt value input
-    label = props.label ? props.label : false, // Label input REQ
-    place = props.place ? props.place : false; // Placeholder
-
+export default ({full, value, label, place, id}) => {
+  const classes = useStyles();
   return (
     <FormControlLabel
       control={
         <TextField
-          fullWidth={full}
-          id={props.id}
-          placeholder={place}
+          fullWidth={full ? true : false}
+          id={id}
+          placeholder={place ? place : false}
           multiline
-          defaultValue={defVal}
+          defaultValue={value ? value : ""}
           variant="outlined"
           size="small"
         />
       }
-      label={label}
+      label={label ? label : false}
       labelPlacement="top"
       className={classes.label}
     />
   );
-}
+};
 
 // LOC CSS
 const useStyles = makeStyles((theme) => ({

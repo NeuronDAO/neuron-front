@@ -11,7 +11,7 @@ import IconEmpty from "@material-ui/icons/Fullscreen";
  * @param {String} props.header [Загаловок пустого блока]
  * @param {String} props.text [Текст пустого блока]
  */
-export default function NoDate(props) {
+export default ({header, text}) => {
   // USE CSS
   const classes = useStyles();
   //  Обрабатываем пустые значения
@@ -20,14 +20,14 @@ export default function NoDate(props) {
     <div className={classes.root}>
       <IconEmpty className={classes.icon} />
       <Typography align="center" variant="subtitle1" color="textPrimary">
-        {props.header}
+        {header}
       </Typography>
       <Typography align="center" variant="subtitle2" color="textSecondary">
-        {props.text}
+        {text}
       </Typography>
     </div>
   );
-}
+};
 
 //  LOC CSS
 const useStyles = makeStyles((theme) => ({

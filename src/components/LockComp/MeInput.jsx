@@ -16,34 +16,28 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
  * @param {String} props.type  [Тип инпута (text | pass | number) ]
  *
  */
-export default function UniversalInput(props) {
-  const classes = useStyles(), // Use style
-    full = props.full ? true : false, // Full width resize input
-    defVal = props.value ? props.value : "", // Defualt value input
-    label = props.label ? props.label : false, // Label input REQ
-    place = props.place ? props.place : false, // Placeholder
-    type = props.type ? props.type : "text"; // Type Input
+export default ({full, value, label, place, type, id}) => {
+  const classes = useStyles();
 
   return (
     <FormControlLabel
-      className={classes.root}
       control={
         <TextField
-          id={props.id}
-          fullWidth={full}
-          defaultValue={defVal}
-          placeholder={place}
-          type={type}
+          id={id}
+          fullWidth={!!full}
+          defaultValue={value ? value : ""}
+          placeholder={place ? place : false}
+          type={type ? type : "text"}
           size="small"
           variant="outlined"
         />
       }
-      label={label}
+      label={label ? label : false}
       className={classes.label}
       labelPlacement="top"
     />
   );
-}
+};
 
 //  Local CSS
 const useStyles = makeStyles((theme) => ({
