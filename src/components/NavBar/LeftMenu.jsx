@@ -12,7 +12,6 @@ import MenuIcon from "@material-ui/icons/Menu";
 /**
  * [Здесь мы генерируем левое меню (то что открывает по нажатию на бургер). ]
  *
- * @param {Array}  props [Получаемый массив данных из родительского компонента]
  * @param {Array}  props.menuList [Рабочий массив ссылок, полученный из компонента Navbar]
  * @param {Num}    props.menuList.id [Идентификатор ссылки - нужен для генерации уникального ключа]
  * @param {String} props.menuList.patch [Путь ссылки - Путь ссылки для React Router]
@@ -20,7 +19,7 @@ import MenuIcon from "@material-ui/icons/Menu";
  * @param {React Component} props.menuList.icon [Иконка ссылки - подставляется как React комопнент в список слево]
  *
  */
-export default function TemporaryDrawer(props) {
+const TemporaryDrawer = ({menuList}) => {
   // USE CSS
   const classes = useStyles();
   // Set State Open type menu - Left | Defualt false - то есть закрытое
@@ -40,7 +39,7 @@ export default function TemporaryDrawer(props) {
     <div>
       {/* LIST ITEMS CONTENTS  */}
       <List className={classes.list}>
-        {props.menuList.map((item) => (
+        {menuList.map((item) => (
           <ListItem component={Link} to={item.path} button key={item.id}>
             {/* LEFT ITEM ICON */}
             <ListItemIcon>{item.icon}</ListItemIcon>
@@ -74,7 +73,7 @@ export default function TemporaryDrawer(props) {
       </React.Fragment>
     </div>
   );
-}
+};
 
 // Locale CSS
 const useStyles = makeStyles({
@@ -85,3 +84,12 @@ const useStyles = makeStyles({
     width: "auto",
   },
 });
+
+TemporaryDrawer.defaultProps = {
+  menuList: [
+    {id: 1, patch: "", name: "Item 1"},
+    {id: 2, patch: "", name: "Item 2"},
+    {id: 3, patch: "", name: "Item 3"},
+  ],
+};
+export default TemporaryDrawer;
