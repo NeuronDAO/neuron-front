@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import BountyCard from "../containers/pure/BountyCard";
+import BountyCard from '../containers/pure/BountyCard';
 
 export default {
-  title: "Example/BountyCard",
+  title: 'Example/BountyCard',
   component: BountyCard,
 };
 

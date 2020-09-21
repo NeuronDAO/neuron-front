@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import RegisterModal from "../components/pure/RegisterModal";
+import RegisterModal from '../components/pure/RegisterModal';
 
 export default {
-  title: "Example/RegisterModal",
+  title: 'Example/RegisterModal',
   component: RegisterModal,
 };
 

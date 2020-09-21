@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import BountyDescription from "../containers/pure/BountyDescription";
+import BountyDescription from '../containers/pure/BountyDescription';
 
 export default {
-  title: "Example/BountyDescription",
+  title: 'Example/BountyDescription',
   component: BountyDescription,
 };
 

@@ -1,0 +1,4 @@
+* {box-sizing: border-box;;}
+body {background-color: #f2f3f4; margin: 0; padding: 0;;}
+.navItem {min-width: 200px;}
+
