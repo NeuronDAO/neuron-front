@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useMemo} from "react";
 import {makeStyles} from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -50,11 +50,11 @@ const menuList = [
  * @param {Bool or String} props.isAutch [Прокидывает данные о пользователе дальше, к элементу UserAutch]
  * @returns {React Components} [Возвращает полностью собранное верхнее меню]
  */
-export default function NavBar(props) {
+const NavBar = ({pTitle, isAuth}) => {
   // Использовать CSS
   const classes = useStyles();
   // Если ничего не передано - то выводим дефолтный заголовок
-  const title = props.pTitle.length < 1 ? "Название раздела" : props.pTitle;
+  const title = useMemo(pTitle.length < 1 ? "Название раздела" : pTitle, [pTitle]);
 
   return (
     <div className={classes.root}>
@@ -67,13 +67,13 @@ export default function NavBar(props) {
             </Typography>
 
             {/* Use UserInfo Components */}
-            <UserAutch isAutch={props.isAutch} />
+            <UserAutch isAutch={isAuth} />
           </Toolbar>
         </Container>
       </AppBar>
     </div>
   );
-}
+};
 
 // Локальный CSS
 const useStyles = makeStyles((theme) => ({
@@ -82,3 +82,9 @@ const useStyles = makeStyles((theme) => ({
   menuButton: {marginRight: theme.spacing(2)},
   title: {flexGrow: 1, marginLeft: "0.5rem"},
 }));
+
+NavBar.defaultProps = {
+  pTitle: "page title",
+  isAuth: false,
+};
+export default NavBar;
