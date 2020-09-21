@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, {useState, useCallback} from "react";
 
 // ! OTHER DEPENDENCIES
 import RegisterModal from "./pure/RegisterModal";
@@ -22,8 +22,8 @@ export default () => {
 
   return (
     <RegisterModal
-      user={{ value: user, handleChange: handleUserChange }}
-      email={{ value: email, handleChange: handleEmailChange }}
+      user={{value: user, handleChange: handleUserChange}}
+      email={{value: email, handleChange: handleEmailChange}}
     />
   );
 };

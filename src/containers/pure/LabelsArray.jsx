@@ -1,9 +1,9 @@
-import React, { useMemo } from "react";
+import React, {useMemo} from "react";
 import Chip from "@material-ui/core/Chip";
 import PropTypes from "prop-types";
 import Box from "@material-ui/core/Box";
 
-const Chips = ({ labels, handleFilterClick, textColor }) => {
+const Chips = ({labels, handleFilterClick, textColor}) => {
   const chips = useMemo(
     () =>
       labels.map((label) => (

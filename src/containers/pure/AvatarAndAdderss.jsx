@@ -24,7 +24,7 @@ const SmolTypo = styled(Typography)`
   max-width: 100px;
 `;
 
-const AvatarAndAddress = ({ address, avatar, ariaLabel, userName }) => {
+const AvatarAndAddress = ({address, avatar, ariaLabel, userName}) => {
   const preventDefault = (e) => e.preventDefault();
 
   return (

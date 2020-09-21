@@ -4,7 +4,7 @@ import Box from "@material-ui/core/Box";
 import Tab from "@material-ui/core/Tab";
 
 const TabPanel = (props) => {
-  const { children, value, index, ...other } = props;
+  const {children, value, index, ...other} = props;
 
   return (
     <div
@@ -44,4 +44,4 @@ const LinkTab = (props) => {
   );
 };
 
-export { TabPanel, a11yProps, LinkTab };
+export {TabPanel, a11yProps, LinkTab};

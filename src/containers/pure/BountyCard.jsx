@@ -29,11 +29,7 @@ const BountyCard = ({
         <Grid container spacing={2}>
           <Grid item xs={6}>
             <Box cursor="pointer">
-              <Typography
-                variant="h6"
-                onClick={handleClick}
-                style={{ cursor: "pointer" }}
-              >
+              <Typography variant="h6" onClick={handleClick} style={{cursor: "pointer"}}>
                 {title}
               </Typography>
             </Box>

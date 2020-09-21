@@ -1,22 +1,21 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles';
-import Accordion from '@material-ui/core/Accordion';
-import AccordionDetails from '@material-ui/core/AccordionDetails';
-import AccordionSummary from '@material-ui/core/AccordionSummary';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Button from '@material-ui/core/Button';
+import React from "react";
+import {Link} from "react-router-dom";
+import {makeStyles} from "@material-ui/core/styles";
+import Accordion from "@material-ui/core/Accordion";
+import AccordionDetails from "@material-ui/core/AccordionDetails";
+import AccordionSummary from "@material-ui/core/AccordionSummary";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import Button from "@material-ui/core/Button";
 
 // Подключаем наши компоненты
-import ChipLabel from '../../../components/LocCards/CardLabel';
-import CardDop from '../../../components/LocCards/CardDop';
-import CardHeader from './CardHeader';
-import CardSale from './CardSale';
-import CardDesc from './CardDesc';
+import ChipLabel from "../../../components/LocCards/CardLabel";
+import CardDop from "../../../components/LocCards/CardDop";
+import CardHeader from "./CardHeader";
+import CardSale from "./CardSale";
+import CardDesc from "./CardDesc";
 
 // Массив с даннымми для Chip
-import chipArr from   '../Chips.json';
-
+import chipArr from "../Chips.json";
 
 /**
  * [Эта функция генерирует карточку проекта, доступную на странице ExplorePage.
@@ -48,48 +47,40 @@ export default function ControlledAccordions(props) {
 
   return (
     <div className={classes.root}>
-      <Accordion expanded={expanded === 'panel'+props.id} onChange={handleChange('panel'+props.id)} >
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-        >
+      <Accordion
+        expanded={expanded === "panel" + props.id}
+        onChange={handleChange("panel" + props.id)}
+      >
+        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <div className={classes.heading}>
             {/* CARD TITLE  */}
-            <CardHeader 
-              title={props.title}
-            />
+            <CardHeader title={props.title} />
 
             {/* CARD CHIPS  */}
-            <ChipLabel 
-              chipArr={chipArr}               
-            />
+            <ChipLabel chipArr={chipArr} />
           </div>
 
-            {/* CARD SALE */}
-            <CardSale 
-              eth={props.saleEth}
-              usd={props.saleUsd}
-            />
+          {/* CARD SALE */}
+          <CardSale eth={props.saleEth} usd={props.saleUsd} />
         </AccordionSummary>
-        
+
         <AccordionDetails className={classes.flexCont}>
           {/* DOP INFO CARD */}
-          <CardDop 
+          <CardDop
             status={props.status}
-            dif={props.difficulty} 
-            rem={props.remaining} 
-            exp={props.expected} />
-          {/* DESCRIPTION CARD */}
-          <CardDesc 
-            desc={props.desc}
+            dif={props.difficulty}
+            rem={props.remaining}
+            exp={props.expected}
           />
+          {/* DESCRIPTION CARD */}
+          <CardDesc desc={props.desc} />
 
           {/* BUTTON LINK GO TO PROJECT */}
-          <Button  component={Link} to="/explorer/viev" variant="outlined" >
-              go to project
+          <Button component={Link} to="/explorer/viev" variant="outlined">
+            go to project
           </Button>
-
         </AccordionDetails>
-      </Accordion>      
+      </Accordion>
     </div>
   );
 }
@@ -97,17 +88,17 @@ export default function ControlledAccordions(props) {
 // LOCAL CSS
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: '100%',
-    marginTop: '20px',
+    width: "100%",
+    marginTop: "20px",
   },
   // Не даем названию зализать на цену
   heading: {
-    flexBasis: 'calc(100% - 95px)',
+    flexBasis: "calc(100% - 95px)",
     flexShrink: 0,
-    paddingRight: '10px',
+    paddingRight: "10px",
   },
   flexCont: {
-    display: 'flex',
-    flexFlow: 'wrap row',
+    display: "flex",
+    flexFlow: "wrap row",
   },
 }));

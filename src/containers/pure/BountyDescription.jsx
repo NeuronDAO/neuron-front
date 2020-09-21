@@ -7,7 +7,7 @@ import Paper from "@material-ui/core/Paper";
 import Divider from "@material-ui/core/Divider";
 import Button from "@material-ui/core/Button";
 import Box from "@material-ui/core/Box";
-import { makeStyles } from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/core/styles";
 
 // TODO: instead of this have makeStyles and use consistent spacing from the theme!
 // const BountyDescriptionPaper = styled(Paper)`
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const BountyDescription = ({ description }) => {
+const BountyDescription = ({description}) => {
   const classes = useStyles();
 
   return (

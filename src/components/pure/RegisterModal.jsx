@@ -1,11 +1,11 @@
-import React, { useState, useCallback } from "react";
+import React, {useState, useCallback} from "react";
 import PropTypes from "prop-types";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 import Modal from "@material-ui/core/Modal";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme) => ({
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const RegisterModal = ({ user, email }) => {
+const RegisterModal = ({user, email}) => {
   const classes = useStyles();
   const [isOpen, setIsOpen] = useState(true);
   const handleClose = useCallback(() => {

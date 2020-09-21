@@ -1,13 +1,13 @@
-import React from 'react';
-import { withStyles, makeStyles } from '@material-ui/core/styles';
-import Tooltip from '@material-ui/core/Tooltip';
-import Hidden from '@material-ui/core/Hidden';
-import Typography from '@material-ui/core/Typography';
+import React from "react";
+import {withStyles, makeStyles} from "@material-ui/core/styles";
+import Tooltip from "@material-ui/core/Tooltip";
+import Hidden from "@material-ui/core/Hidden";
+import Typography from "@material-ui/core/Typography";
 
-import IconDif from '@material-ui/icons/TrackChangesOutlined';
-import IconRem from '@material-ui/icons/UpdateOutlined';
-import IconExp from '@material-ui/icons/KeyboardReturnOutlined';
-import IconState from '@material-ui/icons/RadioButtonCheckedOutlined';
+import IconDif from "@material-ui/icons/TrackChangesOutlined";
+import IconRem from "@material-ui/icons/UpdateOutlined";
+import IconExp from "@material-ui/icons/KeyboardReturnOutlined";
+import IconState from "@material-ui/icons/RadioButtonCheckedOutlined";
 
 /**
  * [Эта функция генерирует микроразметку описания преокта. По сути мы просто принимаем
@@ -24,10 +24,10 @@ export default function CardInfo(props) {
   //  USE CSS
   const classes = useStyles();
   // STADTUS EDIT
-  const statustext = props.status ? 'Active' : 'Completed';
+  const statustext = props.status ? "Active" : "Completed";
   const statusHelp = props.status
-    ? 'The project is available for execution'
-    : 'The project has been completed.';
+    ? "The project is available for execution"
+    : "The project has been completed.";
 
   return (
     <div className={classes.root}>
@@ -35,7 +35,7 @@ export default function CardInfo(props) {
       <LightTooltip title={statusHelp} arrow>
         <Typography variant="overline" className={classes.allLine}>
           <IconState className={classes.icon} />
-          <Hidden only={['xs', 'sm']}>
+          <Hidden only={["xs", "sm"]}>
             <span className={classes.nameState}>Status</span> :
           </Hidden>
           <span className={classes.state}>{statustext}</span>
@@ -46,7 +46,7 @@ export default function CardInfo(props) {
       <LightTooltip title="Level of difficulty" arrow>
         <Typography variant="overline" className={classes.allLine}>
           <IconDif className={classes.icon} />
-          <Hidden only={['xs', 'sm']}>
+          <Hidden only={["xs", "sm"]}>
             <span className={classes.nameState}>Difficulty</span> :
           </Hidden>
           <span className={classes.state}>{props.dif}</span>
@@ -57,7 +57,7 @@ export default function CardInfo(props) {
       <LightTooltip title="Time to complete the task" arrow>
         <Typography variant="overline" className={classes.allLine}>
           <IconRem className={classes.icon} />
-          <Hidden only={['xs', 'sm']}>
+          <Hidden only={["xs", "sm"]}>
             <span className={classes.nameState}>Remaining</span> :
           </Hidden>
           <span className={classes.state}>{props.rem}</span>
@@ -68,7 +68,7 @@ export default function CardInfo(props) {
       <LightTooltip title="Number of revisions" arrow>
         <Typography variant="overline" className={classes.allLine}>
           <IconExp className={classes.icon} />
-          <Hidden only={['xs', 'sm']}>
+          <Hidden only={["xs", "sm"]}>
             <span className={classes.nameState}>Expected</span> :
           </Hidden>
           <span className={classes.state}>{props.exp} Revisions</span>
@@ -83,7 +83,7 @@ const LightTooltip = withStyles((theme) => ({
   tooltip: {
     backgroundColor: theme.palette.common.white,
     fontSize: theme.typography.pxToRem(14),
-    color: 'rgba(0, 0, 0, 0.87)',
+    color: "rgba(0, 0, 0, 0.87)",
     boxShadow: theme.shadows[1],
   },
 }))(Tooltip);
@@ -91,9 +91,9 @@ const LightTooltip = withStyles((theme) => ({
 //  USE CSS BRO
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: '100%',
-    display: 'inline-flex',
-    marginBottom: '10px',
+    width: "100%",
+    display: "inline-flex",
+    marginBottom: "10px",
   },
   state: {
     fontSize: theme.typography.pxToRem(11),
@@ -104,13 +104,13 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.secondary,
   },
   icon: {
-    width: '15px',
-    fill: '#999',
-    marginRight: '3px',
+    width: "15px",
+    fill: "#999",
+    marginRight: "3px",
   },
   allLine: {
-    display: 'flex',
-    alignItems: 'center',
-    marginRight: '10px',
+    display: "flex",
+    alignItems: "center",
+    marginRight: "10px",
   },
 }));

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, {useContext, useEffect, useState} from "react";
 import Box from "@material-ui/core/Box";
 
 // ! OTHER INTERNAL DEPENDENCIES
@@ -7,7 +7,7 @@ import Web3Context from "../contexts/Web3Context";
 // import RegisterController from "../components/RegisterModalController";
 
 const NavTabsController = () => {
-  const { web3, isSetting, error } = useContext(Web3Context);
+  const {web3, isSetting, error} = useContext(Web3Context);
   const [currNetwork, setCurrNetwork] = useState(null);
 
   useEffect(() => {

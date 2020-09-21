@@ -7,7 +7,7 @@ import IconButton from "@material-ui/core/IconButton";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import Badge from "@material-ui/core/Badge";
-import { makeStyles } from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/core/styles";
 import Tab from "@material-ui/core/Tab";
 
 import NetworkIndicator from "@rimble/network-indicator";
@@ -19,12 +19,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const NavTabs = ({ handleLogin, currentNetwork }) => {
+const NavTabs = ({handleLogin, currentNetwork}) => {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" style={{ backgroundColor: "black" }}>
+      <AppBar position="static" style={{backgroundColor: "black"}}>
         <Box
           display="flex"
           flexDirection="row"

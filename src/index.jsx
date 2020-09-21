@@ -1,20 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 // Подключаем разлинковку
-import { createBrowserHistory } from 'history';
-import { Router, Route, Switch } from 'react-router';
+import {createBrowserHistory} from "history";
+import {Router, Route, Switch} from "react-router";
 
 // LANDING PAGE
-import HomePage from './views/HomePage/HomePage';
-import ExplorerPage from './views/ExplorerPage/Index';
-import ExplorerVievPage from './views/ExplorerVievPage/Index';
-import LeadPage from './views/LeadPage/Index';
-import MySettingPage from './views/MySettingPage/Index';
-import MyDashboard from './views/MyProfilePage/MyProfilePage';
-import CreateBount from './views/CreateBount/Index';
+import HomePage from "./views/HomePage/HomePage";
+import ExplorerPage from "./views/ExplorerPage/Index";
+import ExplorerVievPage from "./views/ExplorerVievPage/Index";
+import LeadPage from "./views/LeadPage/Index";
+import MySettingPage from "./views/MySettingPage/Index";
+import MyDashboard from "./views/MyProfilePage/MyProfilePage";
+import CreateBount from "./views/CreateBount/Index";
 // STYLE CSS
-import './assets/css/style.css';
-import 'fontsource-roboto';
+import "./assets/css/style.css";
+import "fontsource-roboto";
 
 //
 var hist = createBrowserHistory();
@@ -33,7 +33,7 @@ ReactDOM.render(
       <Route path="/" component={HomePage} />
     </Switch>
   </Router>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change

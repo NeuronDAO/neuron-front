@@ -1,43 +1,44 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import IconEmpty from '@material-ui/icons/Fullscreen';
+import React from "react";
+import {makeStyles} from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
+import IconEmpty from "@material-ui/icons/Fullscreen";
 
 /**
- * [Если по каким то причинам у нас в блоке нет данных, то передаёт этот 
+ * [Если по каким то причинам у нас в блоке нет данных, то передаёт этот
  * блок как заглушку. Здесь выводится заголовок и комментарий к блоку ]
- * 
- * @param {Array} props [Массив данных полеченнный от родителей] 
+ *
+ * @param {Array} props [Массив данных полеченнный от родителей]
  * @param {String} props.header [Загаловок пустого блока]
  * @param {String} props.text [Текст пустого блока]
  */
-export default function NoDate (props) {
-    // USE CSS
-    const classes = useStyles();
-    //  Обрабатываем пустые значения
+export default function NoDate(props) {
+  // USE CSS
+  const classes = useStyles();
+  //  Обрабатываем пустые значения
 
-
-    return (
-        <div className={classes.root}>
-         <IconEmpty className={classes.icon} />
-         <Typography align="center" variant="subtitle1" color="textPrimary" >{props.header}</Typography>
-         <Typography align="center" variant="subtitle2" color="textSecondary">{props.text}</Typography>
-
-        </div>
-    )    
+  return (
+    <div className={classes.root}>
+      <IconEmpty className={classes.icon} />
+      <Typography align="center" variant="subtitle1" color="textPrimary">
+        {props.header}
+      </Typography>
+      <Typography align="center" variant="subtitle2" color="textSecondary">
+        {props.text}
+      </Typography>
+    </div>
+  );
 }
 
 //  LOC CSS
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: '100%',
-    padding: '40px 0',
-    textAlign: 'center'
+    width: "100%",
+    padding: "40px 0",
+    textAlign: "center",
   },
   icon: {
-    width: '45px',
-    height: '45px',
-    fill: '#d2d2d2',
-  }
-
+    width: "45px",
+    height: "45px",
+    fill: "#d2d2d2",
+  },
 }));

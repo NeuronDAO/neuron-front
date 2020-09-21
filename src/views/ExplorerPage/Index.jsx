@@ -1,9 +1,9 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
+import React from "react";
+import {makeStyles} from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
 // Подключем Меню import NavBar
-import Navbar from '../../components/NavBar/Navbar';
-import Card from './Components/Card';
+import Navbar from "../../components/NavBar/Navbar";
+import Card from "./Components/Card";
 
 function ExplorerPage() {
   const classes = useStyles();
@@ -22,9 +22,9 @@ function ExplorerPage() {
               [...new Array(15)]
                 .map(
                   () =>
-                    'Тут описание проекта, по идеи сервер должен его обрезать. Но мы его страхуем '
+                    "Тут описание проекта, по идеи сервер должен его обрезать. Но мы его страхуем "
                 )
-                .join('\n')
+                .join("\n")
             }
             saleEth="110298110298.110298110298" // - Цена в ETH
             saleUsd="110298.12" // - Цена в USD
@@ -43,15 +43,15 @@ export default ExplorerPage;
 
 //  Данные о пользователе
 const userInfo = {
-  name: 'Sergey Dolmatov',
-  email: 'dolmatov.me@gmail.com', // Доступен только на странице PROFILE
-  avatar: '/', // URL TO AVATAR
-  cashbl: '0x09812098exzc102983109', // ETH CASH
+  name: "Sergey Dolmatov",
+  email: "dolmatov.me@gmail.com", // Доступен только на странице PROFILE
+  avatar: "/", // URL TO AVATAR
+  cashbl: "0x09812098exzc102983109", // ETH CASH
 };
 
 // LOC CSS
 const useStyles = makeStyles((theme) => ({
   root: {
-    marginTop: '20px',
+    marginTop: "20px",
   },
 }));
