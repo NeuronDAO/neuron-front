@@ -1,17 +1,17 @@
 import React from "react";
 import {makeStyles} from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-// Подключем Меню import NavBar
+
 import Navbar from "../../components/NavBar/Navbar";
 import Card from "./Components/Card";
 
 const Explorer = () => {
   const classes = useStyles();
+
   return (
     <>
-      <Navbar isAutch={userInfo} pTitle="Explorer"></Navbar>
+      <Navbar isAuth={userInfo} pTitle="Explorer"></Navbar>
       <Container maxWidth="md" className={classes.root}>
-        {/* Создаём много карточек */}
         {[...new Array(12)].map((item) => (
           <Card
             id="1" // NUM UNIC ID
@@ -28,9 +28,9 @@ const Explorer = () => {
             }
             saleEth="110298110298.110298110298" // - Цена в ETH
             saleUsd="110298.12" // - Цена в USD
-            difficulty="Beginner" // (JUST STRONG Beginner | OR TEXT)
-            remaining="25 Years" // JUST STRONG
-            expected="15" // JUST NUMBER (1-999)
+            difficulty="Beginner"
+            remaining="25 Years"
+            expected="15"
             status={true}
           />
         ))}

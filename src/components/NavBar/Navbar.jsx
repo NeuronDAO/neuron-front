@@ -1,4 +1,4 @@
-import React, {useMemo} from "react";
+import React, {useCallback} from "react";
 import {makeStyles} from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -13,7 +13,7 @@ import ListIcon from "@material-ui/icons/List";
  */
 
 import LeftMenu from "./LeftMenu"; // Подключаем левое (мобильное меню)
-import UserAutch from "./UserInfo"; // Подключаем блок информации о пользователе
+import UserInfo from "./UserInfo"; // Подключаем блок информации о пользователе
 
 // Ссылки хранятся здесь, массивом.
 const menuList = [
@@ -50,11 +50,16 @@ const menuList = [
  * @param {Bool or String} props.isAutch [Прокидывает данные о пользователе дальше, к элементу UserAutch]
  * @returns {React Components} [Возвращает полностью собранное верхнее меню]
  */
-const NavBar = ({pTitle, isAuth}) => {
+const NavBar = ({title, isAuth}) => {
   // Использовать CSS
   const classes = useStyles();
   // Если ничего не передано - то выводим дефолтный заголовок
-  const title = useMemo(() => (pTitle.length < 1 ? "Section name" : pTitle), [pTitle]);
+  const resolvedTitle = useCallback(() => {
+    if (title) {
+      return title.length < 1 ? "Section name" : title;
+    }
+    return title;
+  }, [title]);
 
   return (
     <div className={classes.root}>
@@ -63,11 +68,11 @@ const NavBar = ({pTitle, isAuth}) => {
           <Toolbar disableGutters={true}>
             <LeftMenu menuList={menuList} />
             <Typography variant="h6" className={classes.title} noWrap>
-              {title}
+              {resolvedTitle}
             </Typography>
 
             {/* Use UserInfo Components */}
-            <UserAutch isAutch={isAuth} />
+            <UserInfo isAuth={isAuth} />
           </Toolbar>
         </Container>
       </AppBar>
@@ -75,7 +80,6 @@ const NavBar = ({pTitle, isAuth}) => {
   );
 };
 
-// Локальный CSS
 const useStyles = makeStyles((theme) => ({
   root: {flexGrow: 1},
   NavBar: {boxShadow: "none"},
@@ -87,4 +91,5 @@ NavBar.defaultProps = {
   pTitle: "page title",
   isAuth: false,
 };
+
 export default NavBar;
