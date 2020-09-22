@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 // Подключаем разлинковку
 import {createBrowserHistory} from "history";
-import {Router, Route, Switch} from "react-router";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 // LANDING PAGE
 import HomePage from "./views/HomePage/HomePage";
@@ -16,7 +16,6 @@ import CreateBount from "./views/CreateBount";
 import "./assets/css/style.css";
 import "fontsource-roboto";
 
-//
 var hist = createBrowserHistory();
 
 ReactDOM.render(
