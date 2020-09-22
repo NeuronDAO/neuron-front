@@ -1,7 +1,12 @@
 {
   "name": "@neurondao/front",
   "version": "0.1.0",
-  "main": "./index.js",
+  "main": "./src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NeuronDAO/neuron-front"
+  },
+  "license": "MIT",
   "private": false,
   "dependencies": {
     "@material-ui/core": "^4.11.0",
@@ -17,7 +22,8 @@
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
-    "react-swipeable-views": "^0.13.9"
+    "react-swipeable-views": "^0.13.9",
+    "webpack": "^4.42.0"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
