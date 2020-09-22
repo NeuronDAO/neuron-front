@@ -13,14 +13,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 
-import UserLinks from "./UserLinks";
-
-const controlLength = (x) => {
-  if (x == null) {
-    return x;
-  }
-  return x.length > 10 ? x.substr(0, 5) + "..." + x.substr(x.length - 5, 5) : x;
-};
+import UserLinkAll from "./UserLinksAll";
 
 /**
  * [Формируем раскрывающийся блок информации о пользователи.
@@ -34,28 +27,34 @@ const controlLength = (x) => {
  *
  * @return {React Components} [Возвращает цельный компонент (Аккаурдеон) с минимальным набором информации о пользователе]
  */
-const UserInfo = ({name, avatar, cash, about}) => {
+export default function UserInfo(props) {
   const classes = useStyles();
+  console.log(props);
 
+  // Контролируем введенную сумму
+  function controlLenght(x) {
+    x = x.length > 10 ? x.substr(0, 5) + "..." + x.substr(x.length - 5, 5) : x;
+    return x;
+  }
   return (
     <Accordion className={classes.root}>
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>
         <List className={classes.listAll}>
           <ListItem alignItems="flex-start" className={classes.listAll}>
             <ListItemAvatar>
-              <Avatar alt={name} src={avatar} />
+              <Avatar alt={props.name} src={props.avatar} />
             </ListItemAvatar>
             <ListItemText
-              primary={name}
+              primary={props.name}
               secondary={
                 <React.Fragment>
                   <Typography
                     component={Link}
                     variant="subtitle2"
                     className={classes.hash}
-                    to="https://google.com" // UNCOMMENT CREATE LINK
+                    to={props.link}
                   >
-                    {controlLength(cash)}
+                    {controlLenght(props.cash)}
                   </Typography>
                 </React.Fragment>
               }
@@ -64,19 +63,13 @@ const UserInfo = ({name, avatar, cash, about}) => {
         </List>
       </AccordionSummary>
       <AccordionDetails className={classes.accDop}>
-        <Typography gutterBottom>{about}</Typography>
+        <Typography gutterBottom>{props.about}</Typography>
 
-        <UserLinks
-          site="https://dolmatov.me/"
-          twitter={false}
-          github={false}
-          linkedIn={false}
-          telegram="dolmatov_s"
-        />
+        <UserLinkAll chips={props.links.args.chips} />
       </AccordionDetails>
     </Accordion>
   );
-};
+}
 
 // LOC CSS
 const useStyles = makeStyles((theme) => ({
@@ -101,6 +94,3 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
   },
 }));
-
-UserInfo.defaultProps = {};
-export default UserInfo;
