@@ -12,7 +12,7 @@ import TextArea from "../../components/LockComp/MeTextArea";
 import HelpTooltip from "./Components/HelpTooltip";
 import ChipSelect from "./Components/SelectCategory";
 import JustSelect from "./Components/SelectJust";
-import DataPicker from "./Components/DataPicker";
+import DatePicker from "./Components/DatePicker";
 import PayInpt from "./Components/PayInputNew";
 import TextInfo from "./Components/TextInfo";
 
@@ -88,7 +88,7 @@ export default function LeadPage() {
 
             {/* DATAPICKER  */}
             <div className={classes.controlWidt}>
-              <DataPicker />
+              <DatePicker />
             </div>
 
             <TextInfo
