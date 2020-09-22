@@ -15,7 +15,12 @@ import CardSale from "./CardSale";
 import CardDesc from "./CardDesc";
 
 // Массив с даннымми для Chip
-import chipArr from "../Chips.json";
+const chipArr = [
+  {id: 0, name: "Python"},
+  {id: 1, name: "Go"},
+  {id: 2, name: "C++"},
+  {id: 3, name: "Rust"},
+];
 
 /**
  * [Эта функция генерирует карточку проекта, доступную на странице ExplorePage.

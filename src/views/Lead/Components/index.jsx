@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../../components/NavBar/Navbar";
+import Navbar from "../../../components/NavBar/Navbar";
 import Container from "@material-ui/core/Container";
 import {makeStyles} from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -8,13 +8,13 @@ import TabContext from "@material-ui/lab/TabContext";
 import TabList from "@material-ui/lab/TabList";
 import TabPanel from "@material-ui/lab/TabPanel";
 
-import UserTable from "./Components/LeadList";
+import UserTable from "./LeadList";
 
 /**
  * Формируем список лидеров. Тут всё просто данные передаются в компонент (UserTabel)
  * Там данные разираются в компоненты.
  */
-export default function LeadPage() {
+const Lead = () => {
   const classes = useStyles();
   const [value, setValue] = React.useState("1");
 
@@ -44,7 +44,7 @@ export default function LeadPage() {
       </Container>
     </>
   );
-}
+};
 
 // LOC CSS
 const useStyles = makeStyles(() => ({
@@ -58,3 +58,5 @@ const useStyles = makeStyles(() => ({
     boxShadow: "none",
   },
 }));
+
+export default Lead;

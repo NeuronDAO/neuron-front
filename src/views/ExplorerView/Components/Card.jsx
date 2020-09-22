@@ -8,12 +8,18 @@ import Divider from "@material-ui/core/Divider";
 // Тут мы берём компаненты со страницы Explorer
 import CardChip from "../../../components/LocCards/CardLabel";
 import CardDop from "../../../components/LocCards/CardInfo";
-import chipDump from "../../ExplorerPage/Chips.json";
 
 // Комопненты, которые мы теняем со текущей страницы
 import CardDesc from "./CardDesc";
 import ModalAdd from "../Modal/ModalAdd";
 import CardSale from "./CardSale";
+
+const chipDump = [
+  {id: 0, name: "Python"},
+  {id: 1, name: "Go"},
+  {id: 2, name: "C++"},
+  {id: 3, name: "Rust"},
+];
 
 /**
  * [Здесь мы формируем контент карточки проекта, подставляем описание, название прочие блоки,

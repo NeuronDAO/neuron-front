@@ -1,9 +1,7 @@
-import Home from "./views/HomePage/HomePage";
-import Explore from "./views/ExplorerPage";
-import ExploreView from "./views/ExplorerVievPage";
-import Lead from "./views/LeadPage";
-import MySettings from "./views/MySettingPage";
-import MyDashboard from "./views/MyProfilePage/MyProfilePage";
-import CreateBounty from "./views/CreateBount";
+import Explorer from "./views/Explorer/index";
+import ExplorerView from "./views/ExplorerView/index";
+import Lead from "./views/Lead/index";
+import MySettings from "./views/MySettings/index";
+import CreateBounty from "./views/CreateBounty/index";
 
-export {Home, Explore, ExploreView, Lead, MySettings, MyDashboard, CreateBounty};
+export {Explorer, ExplorerView, Lead, MySettings, CreateBounty};

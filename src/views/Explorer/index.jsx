@@ -5,7 +5,7 @@ import Container from "@material-ui/core/Container";
 import Navbar from "../../components/NavBar/Navbar";
 import Card from "./Components/Card";
 
-function ExplorerPage() {
+const Explorer = () => {
   const classes = useStyles();
   return (
     <>
@@ -37,9 +37,7 @@ function ExplorerPage() {
       </Container>
     </>
   );
-}
-
-export default ExplorerPage;
+};
 
 //  Данные о пользователе
 const userInfo = {
@@ -55,3 +53,5 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "20px",
   },
 }));
+
+export default Explorer;

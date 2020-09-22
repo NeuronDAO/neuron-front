@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
-function HomePage() {
+const Home = () => {
   return (
     <>
       <h1>Выбери ссылку </h1>
@@ -14,5 +14,5 @@ function HomePage() {
       <Link to="/my/dashboard"> Публичный дашборд</Link>
     </>
   );
-}
-export default HomePage;
+};
+export default Home;

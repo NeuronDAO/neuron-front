@@ -20,7 +20,7 @@ import TabsDown from "./Components/Tabs";
  * И отдельно получаем информацию о ставках и комментариях (TabsDown)
  *
  */
-function ExplorerPage() {
+const ExplorerView = () => {
   const classes = useStyles();
 
   return (
@@ -44,12 +44,12 @@ function ExplorerPage() {
       </Container>
     </>
   );
-}
-
-export default ExplorerPage;
+};
 
 // LOC CSS
 const useStyles = makeStyles(() => ({
   root: {marginTop: "20px"},
   infoCard: {padding: "12px 16px"},
 }));
+
+export default ExplorerView;

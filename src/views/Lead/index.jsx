@@ -12,7 +12,7 @@ import List from "@material-ui/core/List";
 
 import UserLine from "./Components/UserLine";
 
-export default function LeadPage() {
+const Lead = () => {
   const classes = useStyles();
   const [value, setValue] = React.useState("1");
 
@@ -72,7 +72,7 @@ export default function LeadPage() {
       </Container>
     </>
   );
-}
+};
 
 // LOC CSS
 const useStyles = makeStyles((theme) => ({
@@ -147,3 +147,5 @@ const usersArr = [
     money: 11812,
   },
 ];
+
+export default Lead;

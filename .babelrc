@@ -1,3 +1,11 @@
 {
-  "presets": ["react", "env", "stage-0"]
+  "presets": [
+    ["@babel/preset-react", {"modules": false}],
+    ["@babel/preset-env", {"modules": false}]
+  ],
+  "plugins": [
+    ["babel-plugin-styled-components", {"pure": true}],
+    ["@babel/plugin-proposal-class-properties", {"loose": true}],
+    "inline-react-svg"
+  ]
 }

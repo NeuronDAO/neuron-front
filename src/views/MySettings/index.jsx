@@ -10,7 +10,7 @@ import EditAbout from "./Components/EditAbout";
 import EditSocial from "./Components/EditSocial";
 import {Button} from "@material-ui/core";
 
-export default function LeadPage() {
+const MySettings = () => {
   const classes = useStyles();
 
   return (
@@ -42,7 +42,7 @@ export default function LeadPage() {
       </Container>
     </>
   );
-}
+};
 
 //  LOC CSS
 const useStyles = makeStyles((theme) => ({
@@ -51,3 +51,5 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "20px",
   },
 }));
+
+export default MySettings;
