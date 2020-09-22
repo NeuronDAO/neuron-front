@@ -1,2 +1,0 @@
-start:
-	yarn && yarn storybook

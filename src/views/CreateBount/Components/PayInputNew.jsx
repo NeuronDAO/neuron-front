@@ -19,7 +19,7 @@ import Typography from "@material-ui/core/Typography";
  * будет 3. По этому решение, которое я здесь использую не подходит для
  * нескольких валют. Однако, если передавать их через массив, то всё будет ОК)
  */
-export default function CustomizedInputBase(props) {
+const CustomizedInputBase = (props) => {
   const classes = useStyles();
   const [state, setState] = React.useState({payType: "ETH"});
   const [pay, setValues] = React.useState({payGo: props.eth});
@@ -68,7 +68,7 @@ export default function CustomizedInputBase(props) {
       </Typography>
     </>
   );
-}
+};
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -103,3 +103,5 @@ const useStyles = makeStyles((theme) => ({
 
   help: {margin: "7px 2px"},
 }));
+
+export default CustomizedInputBase;

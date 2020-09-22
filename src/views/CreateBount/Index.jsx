@@ -20,13 +20,13 @@ import TextInfo from "./Components/TextInfo";
  * Формируем страницу создания новых объвлений
  * Страница статичная так что почти не получает пропсов
  */
-export default function LeadPage() {
+const LeadPage = ({isAuth}) => {
   //  USE CSS
   const classes = useStyles();
 
   return (
     <>
-      <Navbar isAutch={false} pTitle="Create Bounty"></Navbar>
+      <Navbar isAuth={isAuth} pTitle="Create Bounty"></Navbar>
 
       <Container maxWidth="md" className={classes.root}>
         <Paper className={classes.all}>
@@ -112,7 +112,7 @@ export default function LeadPage() {
       </Container>
     </>
   );
-}
+};
 
 //  LOCALE CSS
 const useStyles = makeStyles((theme) => ({
@@ -139,3 +139,5 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "10px",
   },
 }));
+
+export default LeadPage;
