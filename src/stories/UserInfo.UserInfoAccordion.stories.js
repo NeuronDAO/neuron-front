@@ -1,16 +1,16 @@
 import React from "react";
 import {MemoryRouter} from "react-router";
 
-import Navbar from "../components/NavBar/Navbar";
+import UserInfoAccordion from "../components/UserInfo/UserInfoAccordion";
 
 export default {
-  title: "Example/Navbar",
-  component: Navbar,
+  title: "Example/UserInfoAccordion",
+  component: UserInfoAccordion,
 };
 
 const Template = (args) => (
   <MemoryRouter>
-    <Navbar {...args} />
+    <UserInfoAccordion {...args} />
   </MemoryRouter>
 );
 

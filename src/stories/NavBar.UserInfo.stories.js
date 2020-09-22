@@ -1,4 +1,5 @@
 import React from "react";
+import {MemoryRouter} from "react-router";
 
 import UserInfo from "../components/NavBar/UserInfo";
 
@@ -7,6 +8,10 @@ export default {
   component: UserInfo,
 };
 
-const Template = (args) => <UserInfo {...args} />;
+const Template = (args) => (
+  <MemoryRouter>
+    <UserInfo {...args} />
+  </MemoryRouter>
+);
 
 export const Default = Template.bind({});

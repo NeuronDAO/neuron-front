@@ -21,12 +21,12 @@ import NoMaskModal from "../Modal/ModalNoMeta";
  * @returns {Reacr Components}    [Возвращает независимые реакт компонента ]
  *
  */
-export default function UserAutch(props) {
+const UserAuth = ({isAuth, userName, avatar}) => {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null); // Устаналвиванем настройки селектора
 
   // Если пользователь авторизирован то отдаём Его автарку и выподающий список
-  if (props.isAutch !== false) {
+  if (isAuth !== false) {
     const handleClick = (event) => {
       setAnchorEl(event.currentTarget);
     }; // Обработчик на клик по аватарке
@@ -42,7 +42,7 @@ export default function UserAutch(props) {
 
         {/* DROP DOWN ACTION AND USER AVATAR */}
         <div className={classes.UserAvatar} onClick={handleClick}>
-          <Avatar alt={props.isAutch.userName} src={props.isAutch.avatar} />
+          <Avatar alt={userName} src={avatar} />
         </div>
 
         {/* DROP DOWN MENU  */}
@@ -82,7 +82,7 @@ export default function UserAutch(props) {
   else {
     return <NoMaskModal />;
   }
-}
+};
 
 // Локальный CSS
 const useStyles = makeStyles((theme) => ({
@@ -90,3 +90,10 @@ const useStyles = makeStyles((theme) => ({
   UserAvatar: {marginLeft: "10px"},
   itemLink: {fontSize: theme.typography.pxToRem(15), color: theme.palette.text.secondary},
 }));
+
+UserAuth.defaultProps = {
+  isAuth: true,
+  userName: "Kotik",
+  avatar: "https://klike.net/uploads/posts/2019-07/1564314090_3.jpg",
+};
+export default UserAuth;

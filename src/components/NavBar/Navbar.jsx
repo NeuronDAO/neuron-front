@@ -54,7 +54,7 @@ const NavBar = ({pTitle, isAuth}) => {
   // Использовать CSS
   const classes = useStyles();
   // Если ничего не передано - то выводим дефолтный заголовок
-  const title = useMemo(pTitle.length < 1 ? "Название раздела" : pTitle, [pTitle]);
+  const title = useMemo(() => (pTitle.length < 1 ? "Section name" : pTitle), [pTitle]);
 
   return (
     <div className={classes.root}>

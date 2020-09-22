@@ -12,7 +12,7 @@ import Chip from "@material-ui/core/Chip";
  * @param {String} props.chipArr.name [Название чипа - выводится в списке чипов]
  * @returns {React Components} [По полученным параметрам возвращаем список Чипов]
  */
-export default ({chipArr}) => {
+const CardLabel = ({chipArr}) => {
   // USE CSS
   const classes = useStyles();
 
@@ -33,3 +33,12 @@ export default ({chipArr}) => {
 };
 // LOCAL CSS
 const useStyles = makeStyles(() => ({chiip: {margin: "3px 2px"}}));
+
+CardLabel.defaultProps = {
+  chipArr: [
+    {id: 1, name: "name 1"},
+    {id: 2, name: "name 2"},
+    {id: 3, name: "name 3"},
+  ],
+};
+export default CardLabel;

@@ -15,6 +15,13 @@ import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 
 import UserLinks from "./UserLinks";
 
+const controlLength = (x) => {
+  if (x == null) {
+    return x;
+  }
+  return x.length > 10 ? x.substr(0, 5) + "..." + x.substr(x.length - 5, 5) : x;
+};
+
 /**
  * [Формируем раскрывающийся блок информации о пользователи.
  * Внимание, все данные, кроме Avatar - объязательны]
@@ -27,24 +34,19 @@ import UserLinks from "./UserLinks";
  *
  * @return {React Components} [Возвращает цельный компонент (Аккаурдеон) с минимальным набором информации о пользователе]
  */
-export default function UserInfo(props) {
+const UserInfo = ({name, avatar, cash, about}) => {
   const classes = useStyles();
 
-  // Контролируем введенную сумму
-  function controlLenght(x) {
-    x = x.length > 10 ? x.substr(0, 5) + "..." + x.substr(x.length - 5, 5) : x;
-    return x;
-  }
   return (
     <Accordion className={classes.root}>
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>
         <List className={classes.listAll}>
           <ListItem alignItems="flex-start" className={classes.listAll}>
             <ListItemAvatar>
-              <Avatar alt={props.name} src={props.avatar} />
+              <Avatar alt={name} src={avatar} />
             </ListItemAvatar>
             <ListItemText
-              primary={props.name}
+              primary={name}
               secondary={
                 <React.Fragment>
                   <Typography
@@ -53,7 +55,7 @@ export default function UserInfo(props) {
                     className={classes.hash}
                     to="https://google.com" // UNCOMMENT CREATE LINK
                   >
-                    {controlLenght(props.cash)}
+                    {controlLength(cash)}
                   </Typography>
                 </React.Fragment>
               }
@@ -62,7 +64,7 @@ export default function UserInfo(props) {
         </List>
       </AccordionSummary>
       <AccordionDetails className={classes.accDop}>
-        <Typography gutterBottom>{props.about}</Typography>
+        <Typography gutterBottom>{about}</Typography>
 
         <UserLinks
           site="https://dolmatov.me/"
@@ -74,7 +76,7 @@ export default function UserInfo(props) {
       </AccordionDetails>
     </Accordion>
   );
-}
+};
 
 // LOC CSS
 const useStyles = makeStyles((theme) => ({
@@ -99,3 +101,6 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
   },
 }));
+
+UserInfo.defaultProps = {};
+export default UserInfo;
