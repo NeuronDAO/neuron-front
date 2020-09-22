@@ -9,7 +9,7 @@ import Button from "@material-ui/core/Button";
 
 // Подключаем наши компоненты
 import ChipLabel from "../../../components/LocCards/CardLabel";
-import CardDop from "../../../components/LocCards/CardDop";
+import CardDop from "../../../components/LocCards/CardInfo";
 import CardHeader from "./CardHeader";
 import CardSale from "./CardSale";
 import CardDesc from "./CardDesc";

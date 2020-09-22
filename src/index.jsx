@@ -6,12 +6,12 @@ import {Router, Route, Switch} from "react-router";
 
 // LANDING PAGE
 import HomePage from "./views/HomePage/HomePage";
-import ExplorerPage from "./views/ExplorerPage/Index";
-import ExplorerVievPage from "./views/ExplorerVievPage/Index";
-import LeadPage from "./views/LeadPage/Index";
-import MySettingPage from "./views/MySettingPage/Index";
+import ExplorerPage from "./views/ExplorerPage";
+import ExplorerVievPage from "./views/ExplorerVievPage";
+import LeadPage from "./views/LeadPage";
+import MySettingPage from "./views/MySettingPage";
 import MyDashboard from "./views/MyProfilePage/MyProfilePage";
-import CreateBount from "./views/CreateBount/Index";
+import CreateBount from "./views/CreateBount";
 // STYLE CSS
 import "./assets/css/style.css";
 import "fontsource-roboto";

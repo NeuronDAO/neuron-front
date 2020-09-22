@@ -6,7 +6,7 @@ import TabContext from "@material-ui/lab/TabContext";
 import TabList from "@material-ui/lab/TabList";
 import TabPanel from "@material-ui/lab/TabPanel";
 
-import Comment from "../Comments/Index";
+import Comment from "../Comments";
 import NoDate from "../../../components/LockComp/Empty";
 import AddComment from "../Modal/ModalAddComment";
 

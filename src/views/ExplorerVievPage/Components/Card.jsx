@@ -7,7 +7,7 @@ import Divider from "@material-ui/core/Divider";
 
 // Тут мы берём компаненты со страницы Explorer
 import CardChip from "../../../components/LocCards/CardLabel";
-import CardDop from "../../../components/LocCards/CardDop";
+import CardDop from "../../../components/LocCards/CardInfo";
 import chipDump from "../../ExplorerPage/Chips.json";
 
 // Комопненты, которые мы теняем со текущей страницы
