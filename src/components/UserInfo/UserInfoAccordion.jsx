@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import {Link} from "react-router";
 import {makeStyles} from "@material-ui/core/styles";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
@@ -24,6 +24,7 @@ import UserLinkAll from "./UserLinksAll";
  * @param {String} props.avatar [Аватарка пользователя] *
  * @param {String} props.cash [ETH кошелёк пользователя] *
  * @param {String} props.about [Информация об о мне]
+ * @param {String} props.link [Ссылка на пользователя внутри проекта] *
  *
  * @return {React Components} [Возвращает цельный компонент (Аккаурдеон) с минимальным набором информации о пользователе]
  */

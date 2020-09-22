@@ -1,8 +1,8 @@
 import React from "react";
 import {makeStyles} from "@material-ui/core/styles";
-import Chip from "@material-ui/core/Chip";
 import Divider from "@material-ui/core/Divider";
 
+import UserLink from "./UserLink";
 /**
  * [Формируем список ссылок, указанных пользователем]
  *
@@ -18,8 +18,9 @@ export default function MiddleDividers(props) {
   return (
     <div className={classes.root}>
       <Divider variant="fullWidth" />
-
-      <Chip chips={props.chips} />
+      {props.chips.map((chip) => (
+        <UserLink key={chip.label} label={chip.label} link={chip.link} icon={chip.icon} />
+      ))}
     </div>
   );
 }

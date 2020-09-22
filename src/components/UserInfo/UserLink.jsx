@@ -17,11 +17,22 @@ export default function MiddleDividers(props) {
 
   // Если мы не получили ссылку то выводим заглушку на блок
   if (props.link.length === 0) {
-    return <Chip label={props.label} icon={props.icon} className={classes.chip} />;
+    return (
+      <Chip
+        variant="outlined"
+        disabled={true}
+        size="small"
+        label={props.label}
+        icon={props.icon}
+        className={classes.chip}
+      />
+    );
   } else {
     return (
       <Chip
         component="a"
+        size="small"
+        variant="outlined"
         label={props.label}
         icon={props.icon}
         href={props.link}
@@ -33,6 +44,7 @@ export default function MiddleDividers(props) {
 
 const useStyles = makeStyles((theme) => ({
   chip: {
-    margin: theme.spacing(0.5),
+    margin: theme.spacing(1, 0.5),
+    color: theme.palette.secondary,
   },
 }));

@@ -17,13 +17,23 @@ export default {
 const Template = (args) => <UserInfoAccordion {...args} />;
 
 export const Default = Template.bind({});
+export const Full = Template.bind({});
 
 
 Default.args = {
-    name: "Sergey Dolmatov",
+    name: "Name",
     avatar: "/",
-    cash: "asd",
+    cash: "this_is_cash",
     about: "",
-    to: "",
+    link: "/this_is_link",
     links: UserRowLinks.Default, // Не уверен, что я правильно это вызвал
+};
+
+Full.args = {
+  name: "Sergey Dolmatov",
+  avatar: "https://avatars.mds.yandex.net/get-zen_doc/40274/pub_5b80f584f86d9500aaed0776_5b80f842d83c5800ae7def5a/scale_1200",
+  cash: "0x9e11119BE78779a7cE912D9cEB698Fb3Ef5A2fB0",
+  about: "Как же я заипался разбираться с ГитХабом(",
+  link: "/0x9e11119BE78779a7cE912D9cEB698Fb3Ef5A2fB0",
+  links: UserRowLinks.Default, // Не уверен, что я правильно это вызвал
 };
