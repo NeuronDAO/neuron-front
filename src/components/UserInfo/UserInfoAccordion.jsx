@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router";
+import {Link} from "react-router-dom";
 import {makeStyles} from "@material-ui/core/styles";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";

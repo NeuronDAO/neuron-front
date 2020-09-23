@@ -1,15 +1,15 @@
 import React from "react";
-import UserLinks from '../components/UserInfo/UserLink.jsx';
+import UserLinks from "../components/UserInfo/UserLink.jsx";
 
 // ENTER LINK
-import IconTelega from '@material-ui/icons/Telegram';
-import IconSite    from '@material-ui/icons/Language';
-import IconTwiter  from '@material-ui/icons/Twitter';
-import IconGitHub  from '@material-ui/icons/GitHub';
-import IconLinked  from '@material-ui/icons/LinkedIn';
+import IconTelega from "@material-ui/icons/Telegram";
+import IconSite from "@material-ui/icons/Language";
+import IconTwiter from "@material-ui/icons/Twitter";
+import IconGitHub from "@material-ui/icons/GitHub";
+import IconLinked from "@material-ui/icons/LinkedIn";
 
 /**
- * Так выглядит полная панель социальных сетей пользователя 
+ * Так выглядит полная панель социальных сетей пользователя
  * (Дефолтные значение становится если передать пустую строку link !! ВНИМАНИЕ параметр объязательный)
  */
 export default {
@@ -26,42 +26,37 @@ export const Twiter = Template.bind({});
 export const GitHub = Template.bind({});
 export const Linked = Template.bind({});
 
-
 Primary.args = {
-  label: 'defult link',
-  link: ''
+  label: "defult link",
+  link: "",
 };
 
 Telegram.args = {
-  label: '@dolmatov_s',
+  label: "@dolmatov_s",
   icon: <IconTelega />,
-  link: 'https://t.me/dolmatov_s'
+  link: "https://t.me/dolmatov_s",
 };
 
-
 WebSite.args = {
-  label: 'freelancehunt.com',
+  label: "freelancehunt.com",
   icon: <IconSite />,
-  link: 'https://freelancehunt.com/'
+  link: "https://freelancehunt.com/",
 };
 
 Twiter.args = {
-  label: 'Twiter',
+  label: "Twiter",
   icon: <IconTwiter />,
-  link: ''
+  link: "",
 };
 
 GitHub.args = {
-  label: 'GitHub',
+  label: "GitHub",
   icon: <IconGitHub />,
-  link: ''
+  link: "",
 };
 
 Linked.args = {
-  label: 'Linked',
+  label: "Linked",
   icon: <IconLinked />,
-  link: ''
+  link: "",
 };
-
-
-

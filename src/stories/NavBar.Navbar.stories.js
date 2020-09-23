@@ -1,7 +1,7 @@
 import React from "react";
 import {MemoryRouter} from "react-router";
 
-import Navbar from "../components/NavBar/Navbar";
+import Navbar from "../components/NavBar";
 
 export default {
   title: "Example/Navbar",

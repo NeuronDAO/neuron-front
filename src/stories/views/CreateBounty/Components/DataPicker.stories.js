@@ -1,6 +1,6 @@
 import React from "react";
 
-import DatePicker from "../../../../views/CreateBount/Components/DatePicker";
+import DatePicker from "../../../../views/CreateBounty/Components/DatePicker";
 
 export default {
   title: "Example/DatePicker",
