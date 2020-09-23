@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import {makeStyles} from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -8,6 +9,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import MenuIcon from "@material-ui/icons/Menu";
+import ListIcon from "@material-ui/icons/List";
 
 import "sanitize.css";
 
@@ -37,7 +39,7 @@ const TemporaryDrawer = ({menuList}) => {
   };
 
   // ВЫносим сюда формирование ссылок | Простой перебор по .map()
-  const list = (anchor) => (
+  const list = () => (
     <div>
       {/* LIST ITEMS CONTENTS  */}
       <List className={classes.list}>
@@ -77,7 +79,30 @@ const TemporaryDrawer = ({menuList}) => {
   );
 };
 
-// Locale CSS
+const menuList = [
+  {
+    id: 1,
+    name: "Bounty Explorer",
+    path: "/explorer",
+    title: "Bounty jobs",
+    icon: <ListIcon />,
+  },
+  {
+    id: 2,
+    name: "Leaderboard ",
+    path: "/leaderboard",
+    title: "Leaderboard",
+    icon: <ListIcon />,
+  },
+  {
+    id: 3,
+    name: "Dashboard ",
+    path: "/dashboard",
+    title: "Dashboard",
+    icon: <ListIcon />,
+  },
+];
+
 const useStyles = makeStyles({
   list: {
     width: 250,
@@ -87,11 +112,10 @@ const useStyles = makeStyles({
   },
 });
 
+TemporaryDrawer.propTypes = {
+  menuList: PropTypes.arrayOf(PropTypes.object),
+};
 TemporaryDrawer.defaultProps = {
-  menuList: [
-    {id: 1, patch: "", name: "Item 1"},
-    {id: 2, patch: "", name: "Item 2"},
-    {id: 3, patch: "", name: "Item 3"},
-  ],
+  menuList,
 };
 export default TemporaryDrawer;

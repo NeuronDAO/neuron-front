@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {makeStyles} from "@material-ui/core/styles";
 import Divider from "@material-ui/core/Divider";
 
@@ -12,18 +13,18 @@ import UserLink from "./UserLink";
  * Лучше будет писать обработки в цикле (там же расставлять иконки и ссылки),
  * чем пытаться писать обработчик вот так, костылём
  */
-export default function MiddleDividers(props) {
+const UserLinksAll = ({chips}) => {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
       <Divider variant="fullWidth" />
-      {props.chips.map((chip) => (
+      {chips.map((chip) => (
         <UserLink key={chip.label} label={chip.label} link={chip.link} icon={chip.icon} />
       ))}
     </div>
   );
-}
+};
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,3 +32,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
   },
 }));
+
+UserLinksAll.propTypes = {
+  chips: PropTypes.arrayOf(PropTypes.object),
+};
+
+export default UserLinksAll;

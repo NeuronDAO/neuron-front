@@ -3,12 +3,12 @@ import Navbar from "../../components/NavBar";
 import Container from "@material-ui/core/Container";
 import {makeStyles} from "@material-ui/core/styles";
 
-import UserInfo from "../../components/UserInfo/UserInfoAccordion";
+import UserInfoAccordion from "../../components/UserInfo/UserInfoAccordion";
 import CardSelect from "./Components/CardSelect";
 
 import "sanitize.css";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {flexGrow: 1, margin: "20px auto"},
   out: {marginTop: "20px"},
 }));
@@ -20,18 +20,15 @@ export default function LeadPage() {
     <>
       <Navbar isAutch={false} pTitle="My Dashboard"></Navbar>
       <Container maxWidth="md" className={classes.root}>
-        {/*  */}
-        <UserInfo
+        <UserInfoAccordion
           name="Sergey Dolmatov"
           avatar="/"
           cash="random cash"
           about="Information about me"
         />
 
-        {/*  */}
         <CardSelect header="My Bounties" tabs={tabsBountes} />
 
-        {/*  */}
         <CardSelect header="Submissions" tabs={tabsSubmission} />
       </Container>
     </>

@@ -45,11 +45,14 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
     "babel-plugin-inline-react-svg": "^1.1.0",
     "babel-plugin-styled-components": "^1.11.1",
+    "eslint": "^7.9.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.0",
     "husky": "^4.3.0",
     "lint-staged": "^10.4.0",
     "prettier": "^2.1.2",
@@ -65,13 +68,13 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "lint": "eslint --config ./.eslintrc --fix src/",
     "format": "prettier --config ./.prettierrc --write src/",
     "build": "rollup -c && babel ./src -d ./dist/es",
     "predeploy": "cd example && yarn install && yarn run build",
     "rollup:watch": "rollup -c -w",
     "babel:watch": "babel ./src -d ./dist/es --watch",
-    "start:example": "react-scripts start"
+    "start:example": "react-scripts start",
+    "lint": "eslint '**/*.jsx' --ignore-pattern node_modules/"
   },
   "browserslist": {
     "production": [

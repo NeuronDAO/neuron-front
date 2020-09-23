@@ -5,7 +5,7 @@ import RegisterModal from "./pure/RegisterModal";
 
 import "sanitize.css";
 
-export default () => {
+const RegisterModalController = () => {
   const [user, setUser] = useState("$NAZ");
   const [email, setEmail] = useState("steve@jobs.com");
 
@@ -29,3 +29,5 @@ export default () => {
     />
   );
 };
+
+export default RegisterModalController;

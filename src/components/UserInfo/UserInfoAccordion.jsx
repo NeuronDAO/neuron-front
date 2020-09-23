@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import {makeStyles} from "@material-ui/core/styles";
 import Accordion from "@material-ui/core/Accordion";
@@ -13,49 +14,58 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 
-import UserLinkAll from "./UserLinksAll";
+import IconTelega from "@material-ui/icons/Telegram";
+import IconSite from "@material-ui/icons/Language";
+import IconTwitter from "@material-ui/icons/Twitter";
+import IconGithub from "@material-ui/icons/GitHub";
+import IconLinked from "@material-ui/icons/LinkedIn";
 
+import UserLinksAll from "./UserLinksAll";
+
+//  * @param {String} props.link [Ссылка на пользователя внутри проекта] *
 /**
  * [Формируем раскрывающийся блок информации о пользователи.
  * Внимание, все данные, кроме Avatar - объязательны]
  *
  * @param {Array} props [Массив данных полученый от родителя]
- * @param {String} props.name [Имя пользователя] *
- * @param {String} props.avatar [Аватарка пользователя] *
- * @param {String} props.cash [ETH кошелёк пользователя] *
- * @param {String} props.about [Информация об о мне]
- * @param {String} props.link [Ссылка на пользователя внутри проекта] *
+ * @param userInfo includes name and avatar
+ * {String} name [Имя пользователя] *
+ * {String} avatar [Аватарка пользователя] *
+ * @param {String} ethAddress [ETH кошелёк пользователя] *
+ * @param {String} about [Информация об о мне]
  *
  * @return {React Components} [Возвращает цельный компонент (Аккаурдеон) с минимальным набором информации о пользователе]
  */
-export default function UserInfo(props) {
+const UserInfoAccordion = ({userInfo, ethAddress, about, linksChips}) => {
   const classes = useStyles();
-  console.log(props);
 
   // Контролируем введенную сумму
-  function controlLenght(x) {
-    x = x.length > 10 ? x.substr(0, 5) + "..." + x.substr(x.length - 5, 5) : x;
-    return x;
+  function controlLength(x) {
+    if (!x) {
+      return "";
+    }
+    return x.length > 10 ? x.substr(0, 5) + "..." + x.substr(x.length - 5, 5) : x;
   }
+
   return (
     <Accordion className={classes.root}>
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>
         <List className={classes.listAll}>
           <ListItem alignItems="flex-start" className={classes.listAll}>
             <ListItemAvatar>
-              <Avatar alt={props.name} src={props.avatar} />
+              <Avatar alt={userInfo.name} src={userInfo.avatar} />
             </ListItemAvatar>
             <ListItemText
-              primary={props.name}
+              primary={userInfo.name}
               secondary={
                 <React.Fragment>
                   <Typography
                     component={Link}
                     variant="subtitle2"
                     className={classes.hash}
-                    to={props.link}
+                    // to={link}
                   >
-                    {controlLenght(props.cash)}
+                    {controlLength(ethAddress)}
                   </Typography>
                 </React.Fragment>
               }
@@ -64,15 +74,14 @@ export default function UserInfo(props) {
         </List>
       </AccordionSummary>
       <AccordionDetails className={classes.accDop}>
-        <Typography gutterBottom>{props.about}</Typography>
+        <Typography gutterBottom>{about}</Typography>
 
-        <UserLinkAll chips={props.links.args.chips} />
+        <UserLinksAll chips={linksChips} />
       </AccordionDetails>
     </Accordion>
   );
-}
+};
 
-// LOC CSS
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
@@ -95,3 +104,26 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
   },
 }));
+
+UserInfoAccordion.propTypes = {
+  userInfo: PropTypes.object,
+  ethAddress: PropTypes.string,
+  about: PropTypes.string,
+  linksChips: PropTypes.arrayOf(PropTypes.object),
+};
+UserInfoAccordion.defaultProps = {
+  userInfo: {
+    name: "Me",
+    avatar: "https://klike.net/uploads/posts/2019-07/1564314090_3.jpg",
+  },
+  ethAddress: "0x0000000000000000000000000000000000000000",
+  about: "This is some description about me",
+  linksChips: [
+    {label: "Telegram", link: "https://t.me/user", icon: <IconTelega />},
+    {label: "WebSite", link: "https://mywebsite.com", icon: <IconSite />},
+    {label: "Twiter", link: "", icon: <IconTwitter />},
+    {label: "GitHub", link: "", icon: <IconGithub />},
+    {label: "Linked", link: "", icon: <IconLinked />},
+  ],
+};
+export default UserInfoAccordion;

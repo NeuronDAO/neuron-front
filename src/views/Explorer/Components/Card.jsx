@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import {makeStyles} from "@material-ui/core/styles";
 import Accordion from "@material-ui/core/Accordion";
@@ -33,7 +34,7 @@ import "sanitize.css";
  * @returns {React Compnents} [Возвращает готовый для перехода Аккаурдион]
  */
 
-const ControlledAccordions = ({
+const Card = ({
   id,
   title,
   rewardInTokens,
@@ -43,6 +44,7 @@ const ControlledAccordions = ({
   timeRemaining,
   numberExpressedInterest,
   desc,
+  goToProjectPath,
   chipArr,
 }) => {
   const classes = useStyles();
@@ -68,7 +70,6 @@ const ControlledAccordions = ({
         </AccordionSummary>
 
         <AccordionDetails className={classes.flexCont}>
-          {/* DOP INFO CARD */}
           <CardDetails
             isActive={isActive}
             difficulty={difficulty}
@@ -77,7 +78,7 @@ const ControlledAccordions = ({
           />
           <CardDesc desc={desc} />
 
-          <Button component={Link} to="/explorer/view" variant="outlined">
+          <Button component={Link} to={goToProjectPath} variant="outlined">
             go to project
           </Button>
         </AccordionDetails>
@@ -86,7 +87,7 @@ const ControlledAccordions = ({
   );
 };
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     width: "100%",
     marginTop: "20px",
@@ -103,10 +104,26 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-ControlledAccordions.defaultProps = {
+Card.propTypes = {
+  id: PropTypes.string,
+  title: PropTypes.string,
+  difficulty: PropTypes.string,
+  isActive: PropTypes.bool,
+  rewardInTokens: PropTypes.string,
+  rewardInUsd: PropTypes.string,
+  chipArr: PropTypes.arrayOf(PropTypes.object),
+  timeRemaining: PropTypes.string,
+  numberExpressedInterest: PropTypes.string,
+  desc: PropTypes.string,
+  goToProjectPath: PropTypes.string,
+};
+Card.defaultProps = {
   id: "1",
+  title: "card title",
   rewardInTokens: "212",
   rewardInUsd: "2222",
+  isActive: true,
+  difficulty: "beginner",
   chipArr: [
     {id: 0, name: "Python"},
     {id: 1, name: "Go"},
@@ -116,5 +133,7 @@ ControlledAccordions.defaultProps = {
   timeRemaining: "1 month",
   numberExpressedInterest: "10",
   desc: "This is a long description of the work expected to be finished",
+  goToProjectPath: "#",
 };
-export default ControlledAccordions;
+
+export default Card;

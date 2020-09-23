@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {makeStyles} from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -27,7 +28,7 @@ import "sanitize.css";
  * @param {Bool or String} props.isAutch [Прокидывает данные о пользователе дальше, к элементу UserAutch]
  * @returns {React Components} [Возвращает полностью собранное верхнее меню]
  */
-const NavBar = ({title, isAuth, menuList}) => {
+const NavBar = ({userInfo, title, menuList}) => {
   const classes = useStyles();
 
   return (
@@ -40,7 +41,7 @@ const NavBar = ({title, isAuth, menuList}) => {
               {title}
             </Typography>
 
-            <UserInfo isAuth={isAuth} />
+            <UserInfo userInfo={userInfo} />
           </Toolbar>
         </Container>
       </AppBar>
@@ -79,9 +80,17 @@ const menuList = [
   },
 ];
 
+NavBar.propTypes = {
+  menuList: PropTypes.arrayOf(PropTypes.object),
+  title: PropTypes.string,
+  userInfo: PropTypes.object,
+};
 NavBar.defaultProps = {
   title: "navbar title",
-  isAuth: false,
+  userInfo: {
+    name: "Kotik",
+    avatar: "https://klike.net/uploads/posts/2019-07/1564314090_3.jpg",
+  },
   menuList,
 };
 
