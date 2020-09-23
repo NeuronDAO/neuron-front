@@ -1,4 +1,4 @@
-import React, {useCallback} from "react";
+import React from "react";
 import {makeStyles} from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -15,30 +15,7 @@ import ListIcon from "@material-ui/icons/List";
 import LeftMenu from "./LeftMenu"; // Подключаем левое (мобильное меню)
 import UserInfo from "./UserInfo"; // Подключаем блок информации о пользователе
 
-// Ссылки хранятся здесь, массивом.
-const menuList = [
-  {
-    id: 1,
-    name: "Explorer ",
-    path: "/explorer",
-    title: "Список доступных заданий",
-    icon: <ListIcon />,
-  },
-  {
-    id: 2,
-    name: "Leader board ",
-    path: "/leaderboard",
-    title: "Таблица лидеров",
-    icon: <ListIcon />,
-  },
-  {
-    id: 3,
-    name: "Dashboard ",
-    path: "/my/dashboard",
-    title: "Дашбоард",
-    icon: <ListIcon />,
-  },
-];
+import "sanitize.css";
 
 /**
  * [Функция генерации готового верхнего меню. Получает 2 значения title и isAutch.
@@ -50,16 +27,8 @@ const menuList = [
  * @param {Bool or String} props.isAutch [Прокидывает данные о пользователе дальше, к элементу UserAutch]
  * @returns {React Components} [Возвращает полностью собранное верхнее меню]
  */
-const NavBar = ({title, isAuth}) => {
-  // Использовать CSS
+const NavBar = ({title, isAuth, menuList}) => {
   const classes = useStyles();
-  // Если ничего не передано - то выводим дефолтный заголовок
-  const resolvedTitle = useCallback(() => {
-    if (title) {
-      return title.length < 1 ? "Section name" : title;
-    }
-    return title;
-  }, [title]);
 
   return (
     <div className={classes.root}>
@@ -68,10 +37,9 @@ const NavBar = ({title, isAuth}) => {
           <Toolbar disableGutters={true}>
             <LeftMenu menuList={menuList} />
             <Typography variant="h6" className={classes.title} noWrap>
-              {resolvedTitle}
+              {title}
             </Typography>
 
-            {/* Use UserInfo Components */}
             <UserInfo isAuth={isAuth} />
           </Toolbar>
         </Container>
@@ -87,9 +55,34 @@ const useStyles = makeStyles((theme) => ({
   title: {flexGrow: 1, marginLeft: "0.5rem"},
 }));
 
+const menuList = [
+  {
+    id: 1,
+    name: "Bounty Explorer",
+    path: "/explorer",
+    title: "Bounty jobs",
+    icon: <ListIcon />,
+  },
+  {
+    id: 2,
+    name: "Leaderboard ",
+    path: "/leaderboard",
+    title: "Leaderboard",
+    icon: <ListIcon />,
+  },
+  {
+    id: 3,
+    name: "Dashboard ",
+    path: "/dashboard",
+    title: "Dashboard",
+    icon: <ListIcon />,
+  },
+];
+
 NavBar.defaultProps = {
-  pTitle: "page title",
+  title: "navbar title",
   isAuth: false,
+  menuList,
 };
 
 export default NavBar;

@@ -2,6 +2,8 @@ import React from "react";
 import {makeStyles} from "@material-ui/core/styles";
 import Chip from "@material-ui/core/Chip";
 
+import "sanitize.css";
+
 /**
  * [Здесь мы формируем полоску с чипами, для вывода на стрнице ExplorePage | ExplorerVievPage.
  * Просто передавай сюда нужные параметры и наслождайся реуздтатом]
@@ -31,7 +33,7 @@ const CardLabel = ({chipArr}) => {
     </div>
   );
 };
-// LOCAL CSS
+
 const useStyles = makeStyles(() => ({chiip: {margin: "3px 2px"}}));
 
 CardLabel.defaultProps = {

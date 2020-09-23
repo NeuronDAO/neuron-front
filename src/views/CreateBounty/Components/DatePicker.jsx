@@ -3,6 +3,8 @@ import {makeStyles} from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 
+import "sanitize.css";
+
 const useStyles = makeStyles((theme) => ({
   label: {
     display: "flex",

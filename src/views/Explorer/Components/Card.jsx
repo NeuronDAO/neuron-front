@@ -9,23 +9,17 @@ import Button from "@material-ui/core/Button";
 
 // Подключаем наши компоненты
 import ChipLabel from "../../../components/LocCards/CardLabel";
-import CardDop from "../../../components/LocCards/CardInfo";
+import CardDetails from "../../../components/LocCards/CardInfo";
 import CardHeader from "./CardHeader";
 import CardSale from "./CardSale";
 import CardDesc from "./CardDesc";
 
-// Массив с даннымми для Chip
-const chipArr = [
-  {id: 0, name: "Python"},
-  {id: 1, name: "Go"},
-  {id: 2, name: "C++"},
-  {id: 3, name: "Rust"},
-];
+import "sanitize.css";
 
 /**
  * [Эта функция генерирует карточку проекта, доступную на странице ExplorePage.
- * Важно деражть контроль над передаваемым данными] 
- * 
+ * Важно деражть контроль над передаваемым данными]
+ *
  * @param {Array} props [Массив данных получаемый со страницы Explorer PAGE]
  * @param {Number} props.id [Уникальный идентификатор панели !!! ЭТО ВАЖНО !!! ЕГО можнно будет передавать в LINK]
  * @param {String} props.title [Название работы]
@@ -37,15 +31,23 @@ const chipArr = [
  * @param {Number, String} props.expected [Количеств сделаных ставок]
  * @param {String} props.desc [Описание проекта, желательно до 300 символов]
  * @returns {React Compnents} [Возвращает готовый для перехода Аккаурдион]
-
  */
-export default function ControlledAccordions(props) {
-  // USE CSS
+
+const ControlledAccordions = ({
+  id,
+  title,
+  rewardInTokens,
+  rewardInUsd,
+  isActive,
+  difficulty,
+  timeRemaining,
+  numberExpressedInterest,
+  desc,
+  chipArr,
+}) => {
   const classes = useStyles();
-  // USE OPEN ACCARDION STATE - DEF FALSE
   const [expanded, setExpanded] = React.useState(false);
 
-  // Eventer change OPEN | CLOSE Accardion (Bool)
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
@@ -53,44 +55,37 @@ export default function ControlledAccordions(props) {
   return (
     <div className={classes.root}>
       <Accordion
-        expanded={expanded === "panel" + props.id}
-        onChange={handleChange("panel" + props.id)}
+        expanded={expanded === `panel${id}`}
+        onChange={handleChange(`panel${id}`)}
       >
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <div className={classes.heading}>
-            {/* CARD TITLE  */}
-            <CardHeader title={props.title} />
-
-            {/* CARD CHIPS  */}
+            <CardHeader title={title} />
             <ChipLabel chipArr={chipArr} />
           </div>
 
-          {/* CARD SALE */}
-          <CardSale eth={props.saleEth} usd={props.saleUsd} />
+          <CardSale eth={rewardInTokens} usd={rewardInUsd} />
         </AccordionSummary>
 
         <AccordionDetails className={classes.flexCont}>
           {/* DOP INFO CARD */}
-          <CardDop
-            status={props.status}
-            dif={props.difficulty}
-            rem={props.remaining}
-            exp={props.expected}
+          <CardDetails
+            isActive={isActive}
+            difficulty={difficulty}
+            timeRemaining={timeRemaining}
+            numberExpressedInterest={numberExpressedInterest}
           />
-          {/* DESCRIPTION CARD */}
-          <CardDesc desc={props.desc} />
+          <CardDesc desc={desc} />
 
-          {/* BUTTON LINK GO TO PROJECT */}
-          <Button component={Link} to="/explorer/viev" variant="outlined">
+          <Button component={Link} to="/explorer/view" variant="outlined">
             go to project
           </Button>
         </AccordionDetails>
       </Accordion>
     </div>
   );
-}
+};
 
-// LOCAL CSS
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
@@ -107,3 +102,19 @@ const useStyles = makeStyles((theme) => ({
     flexFlow: "wrap row",
   },
 }));
+
+ControlledAccordions.defaultProps = {
+  id: "1",
+  rewardInTokens: "212",
+  rewardInUsd: "2222",
+  chipArr: [
+    {id: 0, name: "Python"},
+    {id: 1, name: "Go"},
+    {id: 2, name: "C++"},
+    {id: 3, name: "Rust"},
+  ],
+  timeRemaining: "1 month",
+  numberExpressedInterest: "10",
+  desc: "This is a long description of the work expected to be finished",
+};
+export default ControlledAccordions;

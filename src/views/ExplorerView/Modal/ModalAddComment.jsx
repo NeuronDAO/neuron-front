@@ -9,21 +9,12 @@ import Typography from "@material-ui/core/Typography";
 
 import TextArea from "../../../components/LockComp/MeTextArea";
 
+import "sanitize.css";
+
 export default function ScrollDialog() {
   const classes = useStyles();
-
   const [open, setOpen] = React.useState(false);
   const [scroll, setScroll] = React.useState("paper");
-
-  const handleClickOpen = (scrollType) => () => {
-    setOpen(true);
-    setScroll(scrollType);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
   const descriptionElementRef = React.useRef(null);
   React.useEffect(() => {
     if (open) {
@@ -33,6 +24,14 @@ export default function ScrollDialog() {
       }
     }
   }, [open]);
+
+  const handleClickOpen = (scrollType) => {
+    setOpen(true);
+    setScroll(scrollType);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <div className={classes.action}>

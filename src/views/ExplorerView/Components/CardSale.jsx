@@ -2,6 +2,8 @@ import React from "react";
 import {makeStyles} from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 
+import "sanitize.css";
+
 /**
  * [Здесь мы обрезаем стоимость. Цена отлчается о цены со странице Explorer
  * тем что она прибита к левому блоку (кнопке) и занимает всё остальное простарнства]

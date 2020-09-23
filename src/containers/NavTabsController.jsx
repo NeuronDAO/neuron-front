@@ -6,6 +6,8 @@ import NavTabs from "./pure/NavTabs";
 import Web3Context from "../contexts/Web3Context";
 // import RegisterController from "../components/RegisterModalController";
 
+import "sanitize.css";
+
 const NavTabsController = () => {
   const {web3, isSetting, error} = useContext(Web3Context);
   const [currNetwork, setCurrNetwork] = useState(null);

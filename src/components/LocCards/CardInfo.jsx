@@ -9,6 +9,8 @@ import IconRem from "@material-ui/icons/UpdateOutlined";
 import IconExp from "@material-ui/icons/KeyboardReturnOutlined";
 import IconState from "@material-ui/icons/RadioButtonCheckedOutlined";
 
+import "sanitize.css";
+
 /**
  * [Эта функция генерирует микроразметку описания преокта. По сути мы просто принимаем
  * Один из разрешенных типов параметров]
@@ -20,19 +22,13 @@ import IconState from "@material-ui/icons/RadioButtonCheckedOutlined";
  * @param {Number} props.exp [Expected - Количество ставок JUST NUMBER]
  * @returns {React Components} [На выходе получаем чистую строку со статусом проекта, временем исполнения и количеством ставок]
  */
-export default ({status, dif, rem, exp}) => {
-  //  USE CSS
+const CardInfo = ({isActive, difficulty, timeRemaining, numberExpressedInterest}) => {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      {/* GENERATION STATUS  */}
       <LightTooltip
-        title={
-          status
-            ? "The project is available for execution"
-            : "The project has been completed."
-        }
+        title={isActive ? "The project is available" : "The project has been completed."}
         arrow
       >
         <Typography variant="overline" className={classes.allLine}>
@@ -40,47 +36,43 @@ export default ({status, dif, rem, exp}) => {
           <Hidden only={["xs", "sm"]}>
             <span className={classes.nameState}>Status</span> :
           </Hidden>
-          <span className={classes.state}>{status ? "Active" : "Completed"}</span>
+          <span className={classes.state}>{isActive ? "Active" : "Completed"}</span>
         </Typography>
       </LightTooltip>
 
-      {/* GENERATION Difficulty */}
       <LightTooltip title="Level of difficulty" arrow>
         <Typography variant="overline" className={classes.allLine}>
           <IconDif className={classes.icon} />
           <Hidden only={["xs", "sm"]}>
             <span className={classes.nameState}>Difficulty</span> :
           </Hidden>
-          <span className={classes.state}>{dif}</span>
+          <span className={classes.state}>{difficulty}</span>
         </Typography>
       </LightTooltip>
 
-      {/* TIME TO DEADLINE  */}
       <LightTooltip title="Time to complete the task" arrow>
         <Typography variant="overline" className={classes.allLine}>
           <IconRem className={classes.icon} />
           <Hidden only={["xs", "sm"]}>
             <span className={classes.nameState}>Remaining</span> :
           </Hidden>
-          <span className={classes.state}>{rem}</span>
+          <span className={classes.state}>{timeRemaining}</span>
         </Typography>
       </LightTooltip>
 
-      {/* GENEARION EXPECTED */}
       <LightTooltip title="Number of revisions" arrow>
         <Typography variant="overline" className={classes.allLine}>
           <IconExp className={classes.icon} />
           <Hidden only={["xs", "sm"]}>
-            <span className={classes.nameState}>Expected</span> :
+            <span className={classes.nameState}>Expressed interest</span> :
           </Hidden>
-          <span className={classes.state}>{exp} Revisions</span>
+          <span className={classes.state}>{numberExpressedInterest} interested</span>
         </Typography>
       </LightTooltip>
     </div>
   );
 };
 
-//  Формируем обновленный подсказки
 const LightTooltip = withStyles((theme) => ({
   tooltip: {
     backgroundColor: theme.palette.common.white,
@@ -90,7 +82,6 @@ const LightTooltip = withStyles((theme) => ({
   },
 }))(Tooltip);
 
-//  USE CSS BRO
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
@@ -116,3 +107,11 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "10px",
   },
 }));
+
+CardInfo.defaultProps = {
+  isActive: true,
+  difficulty: "Advanced",
+  timeRemaining: "1 month",
+  numberExpressedInterest: "0",
+};
+export default CardInfo;

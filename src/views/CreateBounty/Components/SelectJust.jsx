@@ -5,6 +5,8 @@ import FormLabel from "@material-ui/core/FormLabel";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 
+import "sanitize.css";
+
 const useStyles = makeStyles((theme) => ({
   formControl: {
     minWidth: 120,

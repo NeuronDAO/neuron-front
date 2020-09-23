@@ -10,27 +10,16 @@ import Typography from "@material-ui/core/Typography";
 import Input from "../../../components/LockComp/MeInput";
 import TextArea from "../../../components/LockComp/MeTextArea";
 
+import "sanitize.css";
+
 /**
  * Всплывающее окно для создания новой заявки в проекте
  * Вся его суть в том. что оно создает окно
  */
 export default function ScrollDialog() {
-  // Use Css
   const classes = useStyles();
-
-  // Задаем поведение по умолчиню
   const [open, setOpen] = React.useState(false);
   const [scroll, setScroll] = React.useState("paper");
-
-  const handleClickOpen = (scrollType) => () => {
-    setOpen(true);
-    setScroll(scrollType);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
   const descriptionElementRef = React.useRef(null);
   React.useEffect(() => {
     if (open) {
@@ -40,6 +29,15 @@ export default function ScrollDialog() {
       }
     }
   }, [open]);
+
+  const handleClickOpen = (scrollType) => {
+    setOpen(true);
+    setScroll(scrollType);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <div className={classes.action}>

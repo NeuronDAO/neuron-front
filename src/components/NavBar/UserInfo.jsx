@@ -9,6 +9,8 @@ import MenuItem from "@material-ui/core/MenuItem";
 // Тянем сюда окна авторизации
 import NoMaskModal from "../Modal/ModalNoMeta";
 
+import "sanitize.css";
+
 /**
  * [Если в Функцию передаётся FALSE - то мы считаем что пользователь не авторизирован и возвращем ему
  * вслывающее окно, для атворизации]

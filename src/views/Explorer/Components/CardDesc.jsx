@@ -2,6 +2,8 @@ import React from "react";
 import {makeStyles} from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 
+import "sanitize.css";
+
 /**
  * В этой файле мы прорабатываем длинну описания (если вдруг сервер выплёвывает необрезанную строку)
  * В общем не большая страховка, чтобы верстка выгледела локонично

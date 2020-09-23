@@ -3,6 +3,8 @@ import React, {useState, useCallback} from "react";
 // ! OTHER DEPENDENCIES
 import RegisterModal from "./pure/RegisterModal";
 
+import "sanitize.css";
+
 export default () => {
   const [user, setUser] = useState("$NAZ");
   const [email, setEmail] = useState("steve@jobs.com");

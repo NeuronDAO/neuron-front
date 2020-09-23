@@ -1,10 +1,12 @@
 import React from "react";
-import Navbar from "../../components/NavBar/Navbar";
+import Navbar from "../../components/NavBar";
 import Container from "@material-ui/core/Container";
 import {makeStyles} from "@material-ui/core/styles";
 
 import UserInfo from "../../components/UserInfo/UserInfoAccordion";
 import CardSelect from "./Components/CardSelect";
+
+import "sanitize.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {flexGrow: 1, margin: "20px auto"},

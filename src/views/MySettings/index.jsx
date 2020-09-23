@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../../components/NavBar/Navbar";
+import Navbar from "../../components/NavBar";
 import Container from "@material-ui/core/Container";
 import {makeStyles} from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
@@ -9,6 +9,8 @@ import EditAvatar from "./Components/EditAvatar";
 import EditAbout from "./Components/EditAbout";
 import EditSocial from "./Components/EditSocial";
 import {Button} from "@material-ui/core";
+
+import "sanitize.css";
 
 const MySettings = () => {
   const classes = useStyles();

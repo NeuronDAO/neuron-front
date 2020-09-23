@@ -6,6 +6,8 @@ import Divider from "@material-ui/core/Divider";
 import Select from "@material-ui/core/Select";
 import Typography from "@material-ui/core/Typography";
 
+import "sanitize.css";
+
 /**
  * [Инпут с селектором, в котором мы добавляем максимально доступную сумму для
  * снятия для 1 из 3 типов валют]

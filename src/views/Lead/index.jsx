@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../../components/NavBar/Navbar";
+import Navbar from "../../components/NavBar";
 import Container from "@material-ui/core/Container";
 
 import {withStyles, makeStyles} from "@material-ui/core/styles";
@@ -11,6 +11,8 @@ import TabPanel from "@material-ui/lab/TabPanel";
 import List from "@material-ui/core/List";
 
 import UserLine from "./Components/UserLine";
+
+import "sanitize.css";
 
 const Lead = () => {
   const classes = useStyles();

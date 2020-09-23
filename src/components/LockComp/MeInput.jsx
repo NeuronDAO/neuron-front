@@ -3,6 +3,8 @@ import {makeStyles} from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 
+import "sanitize.css";
+
 /**
  * [Мы создаем универсальный инпут. который настраиваем через передаваемые пропсы
  * На всякий случай, есть дефолтные значения, если ты ничего не передал]

@@ -9,6 +9,8 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import MenuIcon from "@material-ui/icons/Menu";
 
+import "sanitize.css";
+
 /**
  * [Здесь мы генерируем левое меню (то что открывает по нажатию на бургер). ]
  *

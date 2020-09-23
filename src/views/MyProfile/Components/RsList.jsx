@@ -9,14 +9,57 @@ import Button from "@material-ui/core/Button";
 
 // Подключаем наши компоненты
 import ChipLabel from "../../../components/LocCards/CardLabel";
-import CardDop from "../../../components/LocCards/CardInfo";
+import CardDetails from "../../../components/LocCards/CardInfo";
 import CardHeader from "../../ExplorerPage/Components/CardHeader";
 import CardSale from "../../ExplorerPage/Components/CardSale";
 
 // Массив с даннымми
 import chipArr from "../../ExplorerPage/Chips.json";
 
-const useStyles = makeStyles((theme) => ({
+const ControlledAccordions = ({
+  id,
+  title,
+  rewardInTokens,
+  rewardInUsd,
+  difficulty,
+  remainingTime,
+  chipArr,
+}) => {
+  const classes = useStyles();
+  const [expanded, setExpanded] = React.useState(false);
+
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
+
+  return (
+    <div className={classes.root}>
+      <Accordion
+        expanded={expanded === `panel${id}`}
+        onChange={handleChange(`panel${id}`)}
+      >
+        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+          <div className={classes.heading}>
+            <CardHeader title={title} />
+            {/* CARD CHIPS  */}
+            <ChipLabel chipArr={chipArr} />
+          </div>
+
+          <CardSale eth={rewardInTokens} usd={rewardInUsd} />
+        </AccordionSummary>
+
+        <AccordionDetails className={classes.flexCont}>
+          <CardDetails dif={difficulty} rem={remainingTime} />
+          <Button component={Link} to="/explorer/view" variant="outlined">
+            go to project
+          </Button>
+        </AccordionDetails>
+      </Accordion>
+    </div>
+  );
+};
+
+const useStyles = makeStyles(() => ({
   root: {
     width: "100%",
     marginTop: "20px",
@@ -32,44 +75,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ControlledAccordions(props) {
-  const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
+ControlledAccordions.defaultProps = {
+  id: "1",
+  title: "Title",
+  rewardInTokens: "200",
+  rewardInUsd: "24000",
+  difficulty: "beginner",
+  remaining: "2 months",
+  chipArr,
+};
 
-  const handleChange = (panel) => (event, isExpanded) => {
-    setExpanded(isExpanded ? panel : false);
-  };
-
-  return (
-    <div className={classes.root}>
-      <Accordion
-        expanded={expanded === "panel" + props.id}
-        onChange={handleChange("panel" + props.id)}
-      >
-        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <div className={classes.heading}>
-            {/* CARD TITLE  */}
-            <CardHeader title={props.title} />
-
-            {/* CARD CHIPS  */}
-            <ChipLabel chipArr={chipArr} />
-          </div>
-
-          {/* CARD SALE */}
-          <CardSale eth={props.saleEth} usd={props.saleUsd} />
-        </AccordionSummary>
-
-        <AccordionDetails className={classes.flexCont}>
-          {/* DOP INFO CARD */}
-          <CardDop dif={props.difficulty} rem={props.remaining} exp={props.expected} />
-          {/* DESCRIPTION CARD */}
-
-          {/* BUTTON LINK GO TO PROJECT */}
-          <Button component={Link} to="/explorer/viev" variant="outlined">
-            go to project
-          </Button>
-        </AccordionDetails>
-      </Accordion>
-    </div>
-  );
-}
+export default ControlledAccordions;

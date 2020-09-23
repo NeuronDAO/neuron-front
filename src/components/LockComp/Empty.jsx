@@ -3,6 +3,8 @@ import {makeStyles} from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import IconEmpty from "@material-ui/icons/Fullscreen";
 
+import "sanitize.css";
+
 /**
  * [Если по каким то причинам у нас в блоке нет данных, то передаёт этот
  * блок как заглушку. Здесь выводится заголовок и комментарий к блоку ]

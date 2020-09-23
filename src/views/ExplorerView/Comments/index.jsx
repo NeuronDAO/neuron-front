@@ -14,6 +14,8 @@ import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import IconFile from "@material-ui/icons/Link";
 import {Button} from "@material-ui/core";
 
+import "sanitize.css";
+
 /**
  * [Обрабатываем полученные о пользователе данные и выводим их в блок комментариев или ставки]
  *
@@ -22,7 +24,6 @@ import {Button} from "@material-ui/core";
  * @param {String} props.link [Ссылки указанаая в ставке]
  * @param {String} props.uName [Имя пользователя, оставившего коментарий]
  * @param {String} props.uLink [Ссылка на пользователя в нашем проекте]
- *
  */
 export default function UserInfo(props) {
   const classes = useStyles(),

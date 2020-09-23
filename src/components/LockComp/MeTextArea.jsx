@@ -3,6 +3,8 @@ import {makeStyles} from "@material-ui/core/styles";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import TextField from "@material-ui/core/TextField";
 
+import "sanitize.css";
+
 /**
  * [Универсальный TextArea, который автоматически расстягивается по длинне
  * конентной области страницы]

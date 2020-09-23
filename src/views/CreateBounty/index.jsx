@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../../components/NavBar/Navbar";
+import Navbar from "../../components/NavBar";
 import Container from "@material-ui/core/Container";
 import {makeStyles} from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
@@ -15,6 +15,8 @@ import JustSelect from "./Components/SelectJust";
 import DatePicker from "./Components/DatePicker";
 import PayInpt from "./Components/PayInputNew";
 import TextInfo from "./Components/TextInfo";
+
+import "sanitize.css";
 
 /**
  * Формируем страницу создания новых объвлений

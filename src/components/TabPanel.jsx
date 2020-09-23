@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import Box from "@material-ui/core/Box";
 import Tab from "@material-ui/core/Tab";
 
+import "sanitize.css";
+
 const TabPanel = (props) => {
   const {children, value, index, ...other} = props;
 

@@ -7,12 +7,14 @@ import Divider from "@material-ui/core/Divider";
 
 // Тут мы берём компаненты со страницы Explorer
 import CardChip from "../../../components/LocCards/CardLabel";
-import CardDop from "../../../components/LocCards/CardInfo";
+import CardDetails from "../../../components/LocCards/CardInfo";
 
 // Комопненты, которые мы теняем со текущей страницы
 import CardDesc from "./CardDesc";
 import ModalAdd from "../Modal/ModalAdd";
 import CardSale from "./CardSale";
+
+import "sanitize.css";
 
 const chipDump = [
   {id: 0, name: "Python"},
@@ -32,8 +34,7 @@ const chipDump = [
  *
  */
 
-export default function RecipeReviewCard(props) {
-  //  USE CSS
+const RecipeCard = (props) => {
   const classes = useStyles();
 
   return (
@@ -44,7 +45,7 @@ export default function RecipeReviewCard(props) {
         </Typography>
 
         {/*  думаю, что стаитчиеские данные не объязательно прокидывать через PROPS */}
-        <CardDop status={true} dif="Beginner" rem="6 mounth" exp="3" />
+        <CardDetails status={true} dif="Beginner" rem="6 mounth" exp="3" />
       </CardContent>
 
       {/* PROJECT DESC  */}
@@ -68,9 +69,8 @@ export default function RecipeReviewCard(props) {
       </CardContent>
     </Card>
   );
-}
+};
 
-//  USE CSS
 const useStyles = makeStyles(() => ({
   root: {maxWidth: "100%"},
   title: {fontWeight: 700},
@@ -79,3 +79,5 @@ const useStyles = makeStyles(() => ({
     alignItems: "center",
   },
 }));
+
+export default RecipeCard;

@@ -1,6 +1,8 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
 
+import "sanitize.css";
+
 /**
  * [Тут мы просто преобразуем полученное от пользователя описания
  * В разделённый на параграфы текст (в идеале).

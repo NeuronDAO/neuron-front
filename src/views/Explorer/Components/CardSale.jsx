@@ -2,6 +2,8 @@ import React from "react";
 import {makeStyles} from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 
+import "sanitize.css";
+
 /**
  * [Здесь мы обрезаем длинные значения цены и "ПРИБИВВЕМ" цену к правому
  * верхнему блоку компонента Card. ]

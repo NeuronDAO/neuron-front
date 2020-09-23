@@ -10,6 +10,8 @@ import Comment from "../Comments";
 import NoDate from "../../../components/LockComp/Empty";
 import AddComment from "../Modal/ModalAddComment";
 
+import "sanitize.css";
+
 /**
  * [статический (к сожалению) блок переключения карточек между комментариями
  * и ставками, которые сделали пользовтели. По умолчанию активные - ставки]
