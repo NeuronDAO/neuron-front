@@ -61,10 +61,7 @@ const RecipeCard = (props) => {
       <Divider variant="fullWidth" />
 
       <CardContent className={classes.cardFooter}>
-        {/* START MODAL ADD  */}
         <ModalAdd />
-
-        {/* START SALE PROJECT */}
         <CardSale eth="0.000025" usd="14022.33" />
       </CardContent>
     </Card>

@@ -30,7 +30,7 @@ export default function ScrollDialog() {
     }
   }, [open]);
 
-  const handleClickOpen = (scrollType) => {
+  const handleClickOpen = (scrollType) => () => {
     setOpen(true);
     setScroll(scrollType);
   };
@@ -96,7 +96,6 @@ export default function ScrollDialog() {
   );
 }
 
-//  USE CSS
 const useStyles = makeStyles((theme) => ({
   footerModal: {
     display: "flex",
