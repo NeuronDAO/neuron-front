@@ -1,7 +1,11 @@
 import React from "react";
 import UserLinksAll from "../components/UserInfo/UserLinksAll.jsx";
 
-import * as UserSocLinkStories from "./UserSocLink.stories";
+import IconTelega from "@material-ui/icons/Telegram";
+import IconSite from "@material-ui/icons/Language";
+import IconTwitter from "@material-ui/icons/Twitter";
+import IconGithub from "@material-ui/icons/GitHub";
+import IconLinked from "@material-ui/icons/LinkedIn";
 
 export default {
   title: "Social icon / ROW LINKS",
@@ -14,10 +18,10 @@ export const Default = Template.bind({});
 
 Default.args = {
   chips: [
-    {...UserSocLinkStories.Telegram.args, id: 1, label: "Telegram", link: ""},
-    {...UserSocLinkStories.WebSite.args, id: 2, label: "WebSite", link: ""},
-    {...UserSocLinkStories.Twiter.args, id: 3, label: "Twiter", link: ""},
-    {...UserSocLinkStories.GitHub.args, id: 4, label: "GitHub", link: ""},
-    {...UserSocLinkStories.Linked.args, id: 5, label: "Linked", link: ""},
+    {label: "Telegram", link: "https://t.me/user", icon: <IconTelega />},
+    {label: "WebSite", link: "https://mywebsite.com", icon: <IconSite />},
+    {label: "Twiter", link: "", icon: <IconTwitter />},
+    {label: "GitHub", link: "", icon: <IconGithub />},
+    {label: "Linked", link: "", icon: <IconLinked />},
   ],
 };

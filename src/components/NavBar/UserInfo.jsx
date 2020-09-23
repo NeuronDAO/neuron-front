@@ -23,12 +23,12 @@ import "sanitize.css";
  * @returns {Reacr Components}    [Возвращает независимые реакт компонента ]
  *
  */
-const UserAuth = ({isAuth, userName, avatar}) => {
+const UserAuth = ({userInfo}) => {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null); // Устаналвиванем настройки селектора
 
   // Если пользователь авторизирован то отдаём Его автарку и выподающий список
-  if (isAuth !== false) {
+  if (userInfo == null) {
     const handleClick = (event) => {
       setAnchorEl(event.currentTarget);
     }; // Обработчик на клик по аватарке
@@ -44,7 +44,7 @@ const UserAuth = ({isAuth, userName, avatar}) => {
 
         {/* DROP DOWN ACTION AND USER AVATAR */}
         <div className={classes.UserAvatar} onClick={handleClick}>
-          <Avatar alt={userName} src={avatar} />
+          <Avatar alt={userInfo.name} src={userInfo.avatar} />
         </div>
 
         {/* DROP DOWN MENU  */}
@@ -94,8 +94,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 UserAuth.defaultProps = {
-  isAuth: true,
-  userName: "Kotik",
-  avatar: "https://klike.net/uploads/posts/2019-07/1564314090_3.jpg",
+  userInfo: {
+    name: "Kotik",
+    avatar: "https://klike.net/uploads/posts/2019-07/1564314090_3.jpg",
+  },
 };
 export default UserAuth;

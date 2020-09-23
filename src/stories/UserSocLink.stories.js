@@ -1,7 +1,6 @@
 import React from "react";
 import UserLinks from "../components/UserInfo/UserLink.jsx";
 
-// ENTER LINK
 import IconTelega from "@material-ui/icons/Telegram";
 import IconSite from "@material-ui/icons/Language";
 import IconTwiter from "@material-ui/icons/Twitter";
@@ -32,15 +31,15 @@ Primary.args = {
 };
 
 Telegram.args = {
-  label: "@dolmatov_s",
+  label: "@user",
   icon: <IconTelega />,
-  link: "https://t.me/dolmatov_s",
+  link: "https://t.me/user",
 };
 
 WebSite.args = {
-  label: "freelancehunt.com",
+  label: "mywebsite.com",
   icon: <IconSite />,
-  link: "https://freelancehunt.com/",
+  link: "https://mywebsite.com",
 };
 
 Twiter.args = {

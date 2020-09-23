@@ -1,6 +1,7 @@
 import * as React from "react";
+import PropTypes from "prop-types";
 import {makeStyles} from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
+import MaterialCard from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
@@ -16,13 +17,6 @@ import CardSale from "./CardSale";
 
 import "sanitize.css";
 
-const chipDump = [
-  {id: 0, name: "Python"},
-  {id: 1, name: "Go"},
-  {id: 2, name: "C++"},
-  {id: 3, name: "Rust"},
-];
-
 /**
  * [Здесь мы формируем контент карточки проекта, подставляем описание, название прочие блоки,
  * которые передаются из родительского эллемента (Хотя, мне кажется лучше получать их ПО АПИ)]
@@ -30,32 +24,40 @@ const chipDump = [
  * @param {Array} props [Массив данных полученный из родитеслького компонента ]
  * @param {String} props.title [Название работы (Верхний заголвок)]
  * @param {String} props.desc [Описания заадчи]
- *
- *
  */
 
-const RecipeCard = (props) => {
+const Card = ({
+  title,
+  desc,
+  isActive,
+  difficulty,
+  timeRemaining,
+  numberExpressedInterest,
+  tags,
+}) => {
   const classes = useStyles();
 
   return (
-    <Card className={classes.root}>
+    <MaterialCard className={classes.root}>
       <CardContent>
         <Typography variant="h6" className={classes.title} gutterBottom>
-          {props.title}
+          {title}
         </Typography>
 
-        {/*  думаю, что стаитчиеские данные не объязательно прокидывать через PROPS */}
-        <CardDetails status={true} dif="Beginner" rem="6 mounth" exp="3" />
+        <CardDetails
+          isActive={isActive}
+          difficulty={difficulty}
+          timeRemaining={timeRemaining}
+          numberExpressedInterest={numberExpressedInterest}
+        />
       </CardContent>
 
-      {/* PROJECT DESC  */}
       <CardContent>
-        <CardDesc desc={props.desc} />
+        <CardDesc desc={desc} />
       </CardContent>
 
-      {/* PROJECT CHIS */}
       <CardContent>
-        <CardChip chipArr={chipDump} />
+        <CardChip chipArr={tags} />
       </CardContent>
 
       <Divider variant="fullWidth" />
@@ -64,7 +66,7 @@ const RecipeCard = (props) => {
         <ModalAdd />
         <CardSale eth="0.000025" usd="14022.33" />
       </CardContent>
-    </Card>
+    </MaterialCard>
   );
 };
 
@@ -77,4 +79,22 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default RecipeCard;
+Card.propTypes = {
+  title: PropTypes.string,
+  desc: PropTypes.string,
+  isActive: PropTypes.bool,
+  difficulty: PropTypes.string,
+  timeRemaining: PropTypes.string,
+  numberExpressedInterest: PropTypes.string,
+  tags: PropTypes.arrayOf(PropTypes.object),
+};
+Card.defaultProps = {
+  title: "Bounty title",
+  desc: "Bounty description, extended text",
+  isActive: true,
+  difficulty: "beginner",
+  timeRemaining: "1 month",
+  numberExpressedInterest: "17",
+  tags: [{id: 1, name: "Python"}],
+};
+export default Card;
