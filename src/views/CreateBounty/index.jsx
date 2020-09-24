@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Navbar from "../../components/NavBar";
 import Container from "@material-ui/core/Container";
 import {makeStyles} from "@material-ui/core/styles";
@@ -22,13 +23,13 @@ import "sanitize.css";
  * Формируем страницу создания новых объвлений
  * Страница статичная так что почти не получает пропсов
  */
-const LeadPage = ({isAuth}) => {
+const LeadPage = ({userInfo}) => {
   //  USE CSS
   const classes = useStyles();
 
   return (
     <>
-      <Navbar isAuth={isAuth} pTitle="Create Bounty"></Navbar>
+      <Navbar userInfo={userInfo} title="Create Bounty" />
 
       <Container maxWidth="md" className={classes.root}>
         <Paper className={classes.all}>
@@ -142,4 +143,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+LeadPage.propTypes = {
+  userInfo: PropTypes.object,
+};
+LeadPage.defaultProps = {
+  userInfo: {
+    name: "kotik",
+    avatar: "/",
+  },
+};
 export default LeadPage;

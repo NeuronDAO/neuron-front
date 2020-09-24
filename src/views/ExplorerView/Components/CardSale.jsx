@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {makeStyles} from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 
@@ -11,7 +12,7 @@ import "sanitize.css";
  * @param {String, Number, Float} props.usd [Цена, уазанная в доллараз ]
  * @param {String, Number, Float} props.eth [Цена, уазанная в Ефириумах ]
  */
-export default function CardSale(props) {
+const CardSale = ({eth, usd}) => {
   // USE CSS
   const classes = useStyles();
 
@@ -24,15 +25,15 @@ export default function CardSale(props) {
     <div className={classes.Area}>
       <div>
         <Typography className={classes.Usd} noWrap>
-          USD: {humanNumber(props.usd)}
+          USD: {humanNumber(usd)}
         </Typography>
         <Typography className={classes.Eth} noWrap>
-          ETH: {props.eth}{" "}
+          ETH: {eth}{" "}
         </Typography>
       </div>
     </div>
   );
-}
+};
 
 // LOC CSS
 const useStyles = makeStyles((theme) => ({
@@ -60,3 +61,12 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
   },
 }));
+
+CardSale.defaultProps = {
+  usd: PropTypes.number,
+  eth: PropTypes.number,
+};
+CardSale.propTypes = {
+  usd: 0,
+  eth: 0,
+};

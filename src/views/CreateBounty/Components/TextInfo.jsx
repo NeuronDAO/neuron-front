@@ -1,21 +1,30 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Typography from "@material-ui/core/Typography";
 
 import "sanitize.css";
 
 /**
- *
- * @param {Array} props [Массив данных полученый от родителя]
- * @param {String} props.header [Название раздела]
- * @param {String} props.text [Описание раздела]
+ * @param {String} header [Название раздела]
+ * @param {String} text [Описание раздела]
  */
-export default function TextInfo(props) {
+const TextInfo = ({header, text}) => {
   return (
     <>
-      <Typography variant="h6">{props.header}</Typography>
+      <Typography variant="h6">{header}</Typography>
       <Typography variant="subtitle2" paragraph>
-        {props.text}
+        {text}
       </Typography>
     </>
   );
-}
+};
+
+TextInfo.propTypes = {
+  header: PropTypes.stirng,
+  text: PropTypes.string,
+};
+TextInfo.defaultProps = {
+  header: "header",
+  text: "text",
+};
+export default TextInfo;

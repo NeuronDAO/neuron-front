@@ -1,5 +1,5 @@
 import React from "react";
-
+import PropTypes from "prop-types";
 import {makeStyles} from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Tab from "@material-ui/core/Tab";
@@ -11,16 +11,7 @@ import Typography from "@material-ui/core/Typography";
 import ListRs from "./LeadList";
 import NoDate from "../../../components/LockComp/Empty";
 
-/**
- * Блок генерации карточек. Вот и как это сделать правильно?
- * Хотелось бы переиспользвоать этот коммпонент, но не выходит
- *
- * Слишком много переменных. С другой стороны разложу его на части
- * и будет мне счастье
- *
- * @param {*} props
- */
-export default function CustomizedTabs(props) {
+const CardSelect = ({header, tabs}) => {
   const classes = useStyles();
   const [value, setValue] = React.useState("1");
   const [run, setRun] = React.useState(0);
@@ -33,11 +24,11 @@ export default function CustomizedTabs(props) {
   return (
     <TabContext value={value}>
       <Typography variant="body1" gutterBottom>
-        {props.header}
+        {header}
       </Typography>
       <AppBar position="static" className={classes.app} color="transparent">
         <TabList onChange={handleChange}>
-          {props.tabs.map((row) => (
+          {tabs.map((row) => (
             <Tab key={row.name} label={row.name} value={row.value} run={row.run} />
           ))}
 
@@ -55,9 +46,8 @@ export default function CustomizedTabs(props) {
       </TabPanel>
     </TabContext>
   );
-}
+};
 
-// LOC CSS
 const useStyles = makeStyles(() => ({
   panel: {
     padding: 0,
@@ -80,3 +70,13 @@ const useStyles = makeStyles(() => ({
     fontSize: 13,
   },
 }));
+
+CardSelect.propTypes = {
+  header: PropTypes.string,
+  tabs: PropTypes.array,
+};
+CardSelect.defaultProps = {
+  header: "header",
+  tabs: [{name: "name", value: "value", run: "run"}],
+};
+export default CardSelect;

@@ -1,38 +1,16 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {makeStyles} from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import InputBase from "@material-ui/core/InputBase";
 import Divider from "@material-ui/core/Divider";
 import Select from "@material-ui/core/Select";
-import Typography from "@material-ui/core/Typography";
+// import Typography from "@material-ui/core/Typography";
 
 import "sanitize.css";
 
-/**
- * [Инпут с селектором, в котором мы добавляем максимально доступную сумму для
- * снятия для 1 из 3 типов валют]
- *
- * @param {Array} props [Получаем список параметров от родитеьлнского элемента]
- * @param {String, Number} props.ETH [Количество доступных средств в ETH]
- * @param {String, Number} props.DAI [Количество доступных средств в DAI]
- * @param {String, Number} props.OCEAN [Количество доступных средств в OCEAN]
- *
- * К сожалению, на момент написания этоо компонента, я не знал что валюты
- * будет 3. По этому решение, которое я здесь использую не подходит для
- * нескольких валют. Однако, если передавать их через массив, то всё будет ОК)
- */
-const CustomizedInputBase = (props) => {
+const PayInputNew = ({rewardAmount, rewardToken, handleChange}) => {
   const classes = useStyles();
-  const [state, setState] = React.useState({payType: "ETH"});
-  const [pay, setValues] = React.useState({payGo: props.eth});
-
-  const handleChange = (event) => {
-    setState({...state, payType: event.target.value});
-    setValues({payGo: 0});
-  };
-  const handleClick = (val) => {
-    setValues({payGo: 111});
-  };
 
   return (
     <>
@@ -40,14 +18,14 @@ const CustomizedInputBase = (props) => {
         <InputBase
           className={classes.input}
           placeholder="Enter payment"
-          value={pay.payGo}
+          value={rewardAmount}
         />
         <Divider className={classes.divider} orientation="vertical" />
         <Select
           className={classes.actionSelect}
           variant="standard"
           native
-          value={state.payType}
+          value={rewardToken}
           onChange={handleChange}
         >
           <option value="ETH" className={classes.select}>
@@ -61,13 +39,13 @@ const CustomizedInputBase = (props) => {
           </option>
         </Select>
       </Paper>
-      <Typography variant="caption" display="block" className={classes.help}>
+      {/* <Typography variant="caption" display="block" className={classes.help}>
         Доступный баланс:
         <strong className={classes.link} onClick={handleClick}>
           THIS_IS_NUMBER{" "}
         </strong>
         {state.payType}{" "}
-      </Typography>
+      </Typography> */}
     </>
   );
 };
@@ -106,4 +84,14 @@ const useStyles = makeStyles((theme) => ({
   help: {margin: "7px 2px"},
 }));
 
-export default CustomizedInputBase;
+PayInputNew.propTypes = {
+  rewardAmount: PropTypes.number,
+  rewardToken: PropTypes.oneOf(["ETH", "DAI", "OCEAN"]),
+  handleChange: PropTypes.func,
+};
+PayInputNew.defaultProps = {
+  rewardAmount: 0,
+  rewardToken: "OCEAN",
+  handleChange: () => {},
+};
+export default PayInputNew;

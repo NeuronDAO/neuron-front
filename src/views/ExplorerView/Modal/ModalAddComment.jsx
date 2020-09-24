@@ -39,7 +39,7 @@ export default function ScrollDialog() {
         Add Comment
       </Button>
       <Typography className={classes.dopText} variant="button" color="textSecondary">
-        Sometimes it's easier to ask
+        Sometimes it&apos;s easier to ask
       </Typography>
       {/* START MODAL */}
       <Dialog

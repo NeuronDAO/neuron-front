@@ -76,7 +76,6 @@ const Lead = () => {
   );
 };
 
-// LOC CSS
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -94,8 +93,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-// UPDATE COMPONENST Tab
-const StyledTab = withStyles((theme) => ({
+const StyledTab = withStyles(() => ({
   root: {
     backgroundColor: "#fff",
     "&:focus": {
@@ -104,7 +102,6 @@ const StyledTab = withStyles((theme) => ({
   },
 }))((props) => <Tab disableRipple {...props} />);
 
-// WORK DUMP ARR
 const usersArr = [
   {
     id: 1,

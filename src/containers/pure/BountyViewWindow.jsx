@@ -47,8 +47,8 @@ const BountyViewWindow = ({
   userName,
   address,
   usdReward,
-  isActive,
-  isImproveRequest,
+  // isActive,
+  // isImproveRequest,
   description,
 }) => {
   return (
@@ -74,8 +74,8 @@ BountyViewWindow.propTypes = {
   userName: PropTypes.string,
   address: PropTypes.string,
   usdReward: PropTypes.string,
-  isActive: PropTypes.bool,
-  isImproveRequest: PropTypes.bool,
+  // isActive: PropTypes.bool,
+  // isImproveRequest: PropTypes.bool,
   description: PropTypes.string,
 };
 
@@ -88,8 +88,8 @@ BountyViewWindow.defaultProps = {
     "https://gateway.pinata.cloud/ipfs/QmNpfCosLnzcHuGv7nyBN16rz6UuZfJ4hwTCKVxuGaDAPZ",
   userName: "$NAZ",
   usdReward: "$12.22",
-  isActive: true,
-  isImproveRequest: false,
+  // isActive: true,
+  // isImproveRequest: false,
   description: `
   # Description
   Suspendisse ac libero et mauris imperdiet consequat. Integer non nisi vitae risus semper commodo. Praesent ultricies posuere eros ut pretium. Ut lobortis eros id nulla fermentum facilisis non quis purus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque aliquam nisi dui, sit amet porta massa facilisis ut. Nam sit amet augue fringilla, lacinia lectus eu, finibus est. Cras eu quam nulla. Nullam a arcu eu urna congue sodales vitae a orci. Sed interdum erat nec molestie pellentesque. Nam efficitur tortor velit, eget euismod est tincidunt eu. Sed a nisi tempor, scelerisque orci sed, rhoncus orci.

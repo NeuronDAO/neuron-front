@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Typography from "@material-ui/core/Typography";
 
 import "sanitize.css";
@@ -14,10 +15,18 @@ import "sanitize.css";
  * @returns {Reacr Components} [Возвращает набор параграфов]
  */
 
-export default function CardDesc(props) {
+const CardDesc = ({desc}) => {
   return (
     <>
-      <Typography paragraph> {props.desc}</Typography>
+      <Typography paragraph> {desc}</Typography>
     </>
   );
-}
+};
+
+CardDesc.propTypes = {
+  desc: PropTypes.string,
+};
+CardDesc.defaultProps = {
+  desc: "description",
+};
+export default CardDesc;

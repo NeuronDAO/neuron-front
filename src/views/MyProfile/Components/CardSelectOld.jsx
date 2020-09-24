@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Typography from "@material-ui/core/Typography";
 import {makeStyles, withStyles} from "@material-ui/core/styles";
 import Tabs from "@material-ui/core/Tabs";
@@ -88,6 +89,12 @@ function TabPanel(props) {
     </div>
   );
 }
+
+TabPanel.propTypes = {
+  children: PropTypes.object,
+  value: PropTypes.string,
+  index: PropTypes.number,
+};
 
 const AntTabs = withStyles({
   indicator: {backgroundColor: "inherit"},
