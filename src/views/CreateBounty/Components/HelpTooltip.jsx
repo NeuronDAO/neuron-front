@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {withStyles, makeStyles} from "@material-ui/core/styles";
 import IconButton from "@material-ui/core/IconButton";
 import Tooltip from "@material-ui/core/Tooltip";
@@ -29,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function HelpTooltip(props) {
+const HelpTooltip = ({header, text}) => {
   const classes = useStyles();
   return (
     <div>
@@ -37,8 +38,8 @@ export default function HelpTooltip(props) {
         className={classes.mrLeft}
         title={
           <>
-            <Typography className={classes.header}>{props.header}</Typography>
-            <Typography className={classes.text}>{props.text}</Typography>
+            <Typography className={classes.header}>{header}</Typography>
+            <Typography className={classes.text}>{text}</Typography>
           </>
         }
       >
@@ -48,4 +49,14 @@ export default function HelpTooltip(props) {
       </LightTooltip>
     </div>
   );
-}
+};
+
+HelpTooltip.propTypes = {
+  header: PropTypes.stirng,
+  text: PropTypes.string,
+};
+HelpTooltip.defaultProps = {
+  header: "header",
+  text: "text",
+};
+export default HelpTooltip;

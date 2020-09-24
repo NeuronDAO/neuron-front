@@ -57,7 +57,7 @@ const BountyDescription = ({description}) => {
               <Divider orientation="horizontal" flexItem />
               <Typography>Deadline: 19/09/2020</Typography>
               <Typography>Payout: $12.22</Typography>
-              <Typography>Collectors' equity payout: 10%</Typography>
+              <Typography>Collectors&apos; equity payout: 10%</Typography>
               <Typography>Data requester equity payout: 10%</Typography>
             </Box>
           </Grid>

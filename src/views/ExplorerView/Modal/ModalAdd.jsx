@@ -96,7 +96,7 @@ export default function ScrollDialog() {
   );
 }
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   footerModal: {
     display: "flex",
     margin: "10px 22px",
