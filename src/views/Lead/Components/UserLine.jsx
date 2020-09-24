@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import {makeStyles} from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
@@ -8,24 +9,10 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import Typography from "@material-ui/core/Typography";
-/**
- * Выводим информмацию о лидере (По сути просто размноживаем список )
- */
 
-const useStyles = makeStyles((theme) => ({
-  link: {
-    fontSize: theme.typography.pxToRem(11),
-    color: theme.palette.text.secondary,
-  },
-  item: {
-    margin: "10px 0",
-    backgroundColor: "#fff",
-  },
-}));
-
-export default function UserInfo(props) {
+const UserInfo = ({id, userInfo, money, cashEth}) => {
   const classes = useStyles();
-  //
+
   function controlLink(str) {
     if (str.length === 0) {
       return "";
@@ -43,7 +30,7 @@ export default function UserInfo(props) {
       );
     }
   }
-  // Делаем из обычного числа человекочистемое число
+
   function humanNumber(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
   }
@@ -51,15 +38,40 @@ export default function UserInfo(props) {
   return (
     <ListItem className={classes.item}>
       <ListItemAvatar>
-        <Avatar>{props.id}</Avatar>
+        <Avatar>{id}</Avatar>
       </ListItemAvatar>
-      <ListItemText
-        primary={props.name + " " + props.surName}
-        secondary={controlLink(props.cashEth)}
-      />
+      <ListItemText primary={userInfo.name} secondary={controlLink(cashEth)} />
       <ListItemSecondaryAction>
-        <Typography variant="subtitle2">{humanNumber(props.money)} USD</Typography>
+        <Typography variant="subtitle2">{humanNumber(money)} USD</Typography>
       </ListItemSecondaryAction>
     </ListItem>
   );
-}
+};
+
+const useStyles = makeStyles((theme) => ({
+  link: {
+    fontSize: theme.typography.pxToRem(11),
+    color: theme.palette.text.secondary,
+  },
+  item: {
+    margin: "10px 0",
+    backgroundColor: "#fff",
+  },
+}));
+
+UserInfo.propTypes = {
+  id: PropTypes.string,
+  userInfo: PropTypes.string,
+  money: PropTypes.string,
+  cashEth: PropTypes.string,
+};
+UserInfo.defaultProps = {
+  id: "id",
+  userInfo: {
+    name: "Kotik",
+  },
+  money: "123",
+  cashEth: "234",
+};
+
+export default UserInfo;

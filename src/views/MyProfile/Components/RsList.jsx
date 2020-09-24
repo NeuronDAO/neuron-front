@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import {makeStyles} from "@material-ui/core/styles";
 import Accordion from "@material-ui/core/Accordion";
@@ -75,14 +76,22 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
+ControlledAccordions.propTypes = {
+  id: PropTypes.string,
+  title: PropTypes.string,
+  rewardInTokens: PropTypes.number,
+  rewardInUsd: PropTypes.number,
+  difficulty: PropTypes.oneOf(["beginner", "intermediate", "advanced"]),
+  remainingTime: PropTypes.string,
+  chipArr: PropTypes.arrayOf(PropTypes.object),
+};
 ControlledAccordions.defaultProps = {
   id: "1",
   title: "Title",
-  rewardInTokens: "200",
-  rewardInUsd: "24000",
+  rewardInTokens: 200,
+  rewardInUsd: 24000,
   difficulty: "beginner",
-  remaining: "2 months",
+  remainingTime: "2 months",
   chipArr,
 };
-
 export default ControlledAccordions;

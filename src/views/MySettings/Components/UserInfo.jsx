@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {makeStyles} from "@material-ui/core/styles";
 import {Link} from "react-router-dom";
 import ListItem from "@material-ui/core/ListItem";
@@ -8,22 +9,16 @@ import Avatar from "@material-ui/core/Avatar";
 import Typography from "@material-ui/core/Typography";
 import Driver from "@material-ui/core/Divider";
 
-const useStyles = makeStyles((theme) => ({
-  listItem: {
-    backgroundColor: "#fff",
-  },
-}));
-
-export default function UserInfo(props) {
+const UserInfo = ({userInfo}) => {
   const classes = useStyles();
-  const userName = props.name + " " + props.surName;
+
   return (
     <ListItem className={classes.listItem}>
       <ListItemAvatar>
-        <Avatar alt={userName} src={props.avatar} />
+        <Avatar alt={userInfo.name} src={userInfo.avatar} />
       </ListItemAvatar>
       <ListItemText
-        primary={userName}
+        primary={userInfo.name}
         secondary={
           <React.Fragment>
             <Typography component={Link} variant="subtitle2" to="https://google.com">
@@ -35,4 +30,21 @@ export default function UserInfo(props) {
       <Driver />
     </ListItem>
   );
-}
+};
+
+const useStyles = makeStyles(() => ({
+  listItem: {
+    backgroundColor: "#fff",
+  },
+}));
+
+UserInfo.propTypes = {
+  userInfo: PropTypes.object,
+};
+UserInfo.defaultProps = {
+  userInfo: {
+    name: "Kotik",
+    avatar: "https://klike.net/uploads/posts/2019-07/1564314090_3.jpg",
+  },
+};
+export default UserInfo;

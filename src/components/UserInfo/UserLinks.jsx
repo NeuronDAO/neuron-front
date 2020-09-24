@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {makeStyles} from "@material-ui/core/styles";
 import Chip from "@material-ui/core/Chip";
 import Divider from "@material-ui/core/Divider";
@@ -98,4 +99,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+MiddleDividers.propTypes = {
+  site: PropTypes.string,
+  twitter: PropTypes.string,
+  github: PropTypes.string,
+  linkedIn: PropTypes.string,
+  telegram: PropTypes.string,
+};
+MiddleDividers.defaultProps = {
+  site: "site",
+  twitter: "twitter",
+  github: "github",
+  linkedIn: "linkedIn",
+  telegram: "telegram",
+};
 export default MiddleDividers;

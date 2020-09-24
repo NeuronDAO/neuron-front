@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {makeStyles} from "@material-ui/core/styles";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import TextField from "@material-ui/core/TextField";
@@ -18,7 +19,7 @@ import "sanitize.css";
  *
  */
 
-export default ({full, value, label, place, id}) => {
+const MeTextArea = ({full, value, label, place, id}) => {
   const classes = useStyles();
   return (
     <FormControlLabel
@@ -40,7 +41,6 @@ export default ({full, value, label, place, id}) => {
   );
 };
 
-// LOC CSS
 const useStyles = makeStyles((theme) => ({
   label: {
     display: "flex",
@@ -51,3 +51,19 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.secondary,
   },
 }));
+
+MeTextArea.propTypes = {
+  full: PropTypes.string,
+  value: PropTypes.string,
+  label: PropTypes.string,
+  place: PropTypes.string,
+  id: PropTypes.string,
+};
+MeTextArea.defaultProps = {
+  full: "full",
+  value: "value",
+  label: "label",
+  place: "placeholder",
+  id: "id",
+};
+export default MeTextArea;

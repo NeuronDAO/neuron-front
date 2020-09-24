@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {makeStyles} from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
@@ -18,7 +19,7 @@ import "sanitize.css";
  * @param {String} props.type  [Тип инпута (text | pass | number) ]
  *
  */
-export default ({full, value, label, place, type, id}) => {
+const MeInput = ({full, value, label, place, type, id}) => {
   const classes = useStyles();
 
   return (
@@ -53,3 +54,21 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.secondary,
   },
 }));
+
+MeInput.propTypes = {
+  full: PropTypes.string,
+  value: PropTypes.string,
+  label: PropTypes.string,
+  place: PropTypes.string,
+  type: PropTypes.string,
+  id: PropTypes.string,
+};
+MeInput.defaulProps = {
+  full: "full",
+  value: "value",
+  label: "label",
+  place: "placeholder",
+  type: "input type",
+  id: "id",
+};
+export default MeInput;

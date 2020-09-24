@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {withStyles, makeStyles} from "@material-ui/core/styles";
 import Tooltip from "@material-ui/core/Tooltip";
 import Hidden from "@material-ui/core/Hidden";
@@ -108,10 +109,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+CardInfo.propTypes = {
+  isActive: PropTypes.bool,
+  difficulty: PropTypes.oneOf(["beginner", "intermediate", "advanced"]),
+  timeRemaining: PropTypes.string,
+  numberExpressedInterest: PropTypes.number,
+};
 CardInfo.defaultProps = {
   isActive: true,
-  difficulty: "Advanced",
+  difficulty: "advanced",
   timeRemaining: "1 month",
-  numberExpressedInterest: "0",
+  numberExpressedInterest: 0,
 };
+
 export default CardInfo;
