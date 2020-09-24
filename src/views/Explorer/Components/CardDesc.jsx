@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {makeStyles} from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 
@@ -8,24 +9,18 @@ import "sanitize.css";
  * В этой файле мы прорабатываем длинну описания (если вдруг сервер выплёвывает необрезанную строку)
  * В общем не большая страховка, чтобы верстка выгледела локонично
  *
- * @param {Array} props [Массив данных принимаемых от родителя]
- * @param {String} props.desc [Строка описания, которую мы обрезаем ]
- * @returns {React Components} [Возвращаем обрезанное описание]
+ * @param {String} desc [Строка описания, которую мы обрезаем ]
  */
-export default function Desc(props) {
+const Desc = ({desc}) => {
   const classes = useStyles();
-
-  // Обрезаем длинную строку, если она длинна
-  const desc = props.desc.length > 290 ? props.desc.substr(0, 285) + "..." : props.desc;
 
   return (
     <Typography display="block" variant="body2" className={classes.root}>
-      {desc}
+      {desc ? (desc.length > 290 ? desc.substr(0, 285) + "..." : desc) : ""}
     </Typography>
   );
-}
+};
 
-//  CSS STYLE
 const useStyles = makeStyles((theme) => ({
   root: {
     fontSize: theme.typography.pxToRem(14),
@@ -34,3 +29,11 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
   },
 }));
+
+Desc.propTypes = {
+  desc: PropTypes.string,
+};
+Desc.defaultProps = {
+  desc: "some description",
+};
+export default Desc;

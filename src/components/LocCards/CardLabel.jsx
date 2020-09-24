@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {makeStyles} from "@material-ui/core/styles";
 import Chip from "@material-ui/core/Chip";
 
@@ -36,6 +37,9 @@ const CardLabel = ({chipArr}) => {
 
 const useStyles = makeStyles(() => ({chiip: {margin: "3px 2px"}}));
 
+CardLabel.propTypes = {
+  chipArr: PropTypes.object,
+};
 CardLabel.defaultProps = {
   chipArr: [
     {id: 1, name: "name 1"},

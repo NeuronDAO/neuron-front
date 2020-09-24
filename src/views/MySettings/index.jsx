@@ -47,7 +47,7 @@ const MySettings = () => {
 };
 
 //  LOC CSS
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {flexGrow: 1, margin: "20px auto"},
   out: {
     marginTop: "20px",

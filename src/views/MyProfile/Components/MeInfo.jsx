@@ -1,5 +1,4 @@
 import React from "react";
-import {Link} from "react-router-dom";
 import {makeStyles} from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Avatar from "@material-ui/core/Avatar";
@@ -35,8 +34,8 @@ export default function UserInfo() {
       <Avatar alt="Sergey Dolmatov" src="/" className={classes.large} />
       <Typography variant="h6">Sergey Dolmatov</Typography>
       <Typography variant="subtitle2">
-        Сюда выводится текст описания, из графы "об омне". Раз уж мы её сделали, то должны
-        вывести. Да и к тому же посмотрим, как вытягивается пространство
+        Сюда выводится текст описания, из графы &quot;об омне&quot;. Раз уж мы её сделали,
+        то должны вывести. Да и к тому же посмотрим, как вытягивается пространство
       </Typography>
     </div>
   );

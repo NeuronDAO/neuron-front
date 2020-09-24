@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 
 import {makeStyles} from "@material-ui/core/styles";
@@ -25,9 +26,8 @@ import "sanitize.css";
  * @param {String} props.uName [Имя пользователя, оставившего коментарий]
  * @param {String} props.uLink [Ссылка на пользователя в нашем проекте]
  */
-export default function UserInfo(props) {
-  const classes = useStyles(),
-    userGo = props.uLink ? props.uLink : false;
+const UserInfo = ({uLink, uName, link, text}) => {
+  const classes = useStyles();
 
   // Если мы получили ссылку - то выводим информацию о ней
   function controlLine(str) {
@@ -67,29 +67,29 @@ export default function UserInfo(props) {
     <List>
       <ListItem alignItems="flex-start" className={classes.listAll}>
         <ListItemAvatar>
-          <Avatar alt={props.uName} src="/" />
+          <Avatar alt={uName} src="/" />
         </ListItemAvatar>
         <ListItemText
           // Ссылка на аккаунт пользователя + вывод его имени
           primary={
-            <Button component={Link} to={userGo}>
+            <Button component={Link} to={uLink ? uLink : false}>
               {" "}
-              {props.uName}{" "}
+              {uName}{" "}
             </Button>
           }
           secondary={
             <React.Fragment>
               {/* Текст, если пользователь указал комментарий  */}
-              {generationtext(props.text)}
+              {generationtext(text)}
               {/* Если есть ссылка, то она появится здесь */}
-              {controlLine(props.link)}
+              {controlLine(link)}
             </React.Fragment>
           }
         />
       </ListItem>
     </List>
   );
-}
+};
 
 const useStyles = makeStyles((theme) => ({
   root: {width: "100%", margin: "20px 0"},
@@ -107,3 +107,17 @@ const useStyles = makeStyles((theme) => ({
     borderTop: "1px solid red",
   },
 }));
+
+UserInfo.propTypes = {
+  uLink: PropTypes.string,
+  uName: PropTypes.string,
+  link: PropTypes.string,
+  text: PropTypes.string,
+};
+UserInfo.defaultProps = {
+  uLink: "uLink",
+  uName: "uName",
+  link: "link",
+  text: "text",
+};
+export default UserInfo;

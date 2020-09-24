@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {makeStyles} from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import IconEmpty from "@material-ui/icons/Fullscreen";
@@ -13,7 +14,7 @@ import "sanitize.css";
  * @param {String} props.header [Загаловок пустого блока]
  * @param {String} props.text [Текст пустого блока]
  */
-export default ({header, text}) => {
+const Empty = ({header, text}) => {
   // USE CSS
   const classes = useStyles();
   //  Обрабатываем пустые значения
@@ -31,8 +32,7 @@ export default ({header, text}) => {
   );
 };
 
-//  LOC CSS
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     width: "100%",
     padding: "40px 0",
@@ -44,3 +44,13 @@ const useStyles = makeStyles((theme) => ({
     fill: "#d2d2d2",
   },
 }));
+
+Empty.propTypes = {
+  header: PropTypes.string,
+  text: PropTypes.string,
+};
+Empty.defaultProps = {
+  header: "Header",
+  text: "text",
+};
+export default Empty;
