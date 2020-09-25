@@ -23,7 +23,7 @@ export default function BasicNavBar(props) {
     <AppBar className={classes.app} position="static" color="transparent">
       <Container size="lg">
         <Toolbar disableGutters={true}>
-          <Typography variant="body1" className={classes.title}>
+          <Typography variant="h1" className={classes.title}>
             reNFT
           </Typography>
           {props.buttonsList.map((btn) => (
